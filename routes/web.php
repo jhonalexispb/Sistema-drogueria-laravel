@@ -17,4 +17,9 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+/* Route::view('/pages/slick', 'pages.slick');
+Route::view('/pages/datatables', 'pages.datatables');
+Route::view('/pages/blank', 'pages.blank'); */
+
 require __DIR__.'/auth.php';
+require __DIR__ . '/productos.php';

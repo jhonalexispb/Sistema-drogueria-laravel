@@ -215,7 +215,7 @@
               D<span class="opacity-75">x</span>
             </span>
             <span class="smini-hidden">
-              Dash<span class="opacity-75">mix</span>
+              BO<span class="opacity-75">NED</span>
             </span>
           </a>
           <!-- END Logo -->
@@ -245,6 +245,67 @@
             </div>
             <!-- END Dark Mode -->
 
+            {{-- <div class="dropdown">
+              <button type="button" class="btn btn-sm btn-alt-secondary" id="sidebar-themes-dropdown" data-bs-auto-close="outside" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fa fa-fw fa-paint-brush"></i>
+              </button>
+              <div class="dropdown-menu dropdown-menu-end fs-sm border-0" aria-labelledby="sidebar-themes-dropdown">
+                <!-- Color Themes -->
+                <!-- Layout API, functionality initialized in Template._uiHandleTheme() -->
+                <div class="row g-sm text-center">
+                  <div class="col-4 mb-1">
+                    <a class="d-block py-3 text-white fs-xs fw-semibold bg-default rounded-1" data-toggle="theme" data-theme="default" href="#">
+                      Default
+                    </a>
+                  </div>
+                  <div class="col-4 mb-1">
+                    <a class="d-block py-3 text-white fs-xs fw-semibold bg-xwork rounded-1" data-toggle="theme" data-theme="assets/css/themes/xwork.min.css" href="#">
+                      xWork
+                    </a>
+                  </div>
+                  <div class="col-4 mb-1">
+                    <a class="d-block py-3 text-white fs-xs fw-semibold bg-xmodern rounded-1" data-toggle="theme" data-theme="assets/css/themes/xmodern.min.css" href="#">
+                      xModern
+                    </a>
+                  </div>
+                  <div class="col-4 mb-1">
+                    <a class="d-block py-3 text-white fs-xs fw-semibold bg-xeco rounded-1" data-toggle="theme" data-theme="assets/css/themes/xeco.min.css" href="#">
+                      xEco
+                    </a>
+                  </div>
+                  <div class="col-4 mb-1">
+                    <a class="d-block py-3 text-white fs-xs fw-semibold bg-xsmooth rounded-1" data-toggle="theme" data-theme="assets/css/themes/xsmooth.min.css" href="#">
+                      xSmooth
+                    </a>
+                  </div>
+                  <div class="col-4 mb-1">
+                    <a class="d-block py-3 text-white fs-xs fw-semibold bg-xinspire rounded-1" data-toggle="theme" data-theme="assets/css/themes/xinspire.min.css" href="#">
+                      xInspire
+                    </a>
+                  </div>
+                  <div class="col-4 mb-1">
+                    <a class="d-block py-3 text-white fs-xs fw-semibold bg-xdream rounded-1" data-toggle="theme" data-theme="assets/css/themes/xdream.min.css" href="#">
+                      xDream
+                    </a>
+                  </div>
+                  <div class="col-4 mb-1">
+                    <a class="d-block py-3 text-white fs-xs fw-semibold bg-xpro rounded-1" data-toggle="theme" data-theme="assets/css/themes/xpro.min.css" href="#">
+                      xPro
+                    </a>
+                  </div>
+                  <div class="col-4 mb-1">
+                    <a class="d-block py-3 text-white fs-xs fw-semibold bg-xplay rounded-1" data-toggle="theme" data-theme="assets/css/themes/xplay.min.css" href="#">
+                      xPlay
+                    </a>
+                  </div>
+                  <div class="col-12">
+                    <a class="d-block py-2 bg-body-dark fs-xs fw-semibold text-dark rounded-1" href="be_ui_color_themes.html">All Color Themes</a>
+                  </div>
+                </div>
+                <!-- END Color Themes -->
+              </div>
+            </div> --}}
+
             <!-- Close Sidebar, Visible only on mobile screens -->
             <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
             <button type="button" class="btn btn-sm btn-alt-secondary d-lg-none" data-toggle="layout" data-action="sidebar_close">
@@ -270,14 +331,14 @@
               </a>
             </li>
             <li class="nav-main-heading">Almacen</li>
-            <li class="nav-main-item{{ request()->is('pages/*') ? ' open' : '' }}">
+            <li class="nav-main-item{{ request()->routeIs('productos.*') ? ' open' : '' }}">
               <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="true" href="#">
                 <i class="nav-main-link-icon fa-solid fa-box"></i>
                 <span class="nav-main-link-name">Productos</span>
               </a>
               <ul class="nav-main-submenu">
                 <li class="nav-main-item">
-                  <a class="nav-main-link{{ request()->is('pages/datatables') ? ' active' : '' }}" href="/pages/datatables">
+                  <a class="nav-main-link{{ request()->routeIs('productos.index') ? ' active' : '' }}" href="{{route('productos.index')}}">
                     <span class="nav-main-link-name">Listado</span>
                   </a>
                 </li>
@@ -286,11 +347,11 @@
                     <span class="nav-main-link-name">Productos por vencer</span>
                   </a>
                 </li>
-                {{-- <li class="nav-main-item">
+                <li class="nav-main-item">
                   <a class="nav-main-link{{ request()->is('pages/blank') ? ' active' : '' }}" href="/pages/blank">
                     <span class="nav-main-link-name">Blank</span>
                   </a>
-                </li> --}}
+                </li>
               </ul>
             </li>
             <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="true" href="#">
@@ -303,6 +364,45 @@
                 <i class="nav-main-link-icon fa fa-globe"></i>
                 <span class="nav-main-link-name">Landing</span>
               </a>
+            </li>
+
+
+            <li class="nav-main-item">
+              <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="true" href="#">
+                <span class="nav-main-link-name">e-Commerce</span>
+              </a>
+              <ul class="nav-main-submenu">
+                <li class="nav-main-item">
+                  <a class="nav-main-link" href="be_pages_ecom_dashboard.html">
+                    <span class="nav-main-link-name">Dashboard</span>
+                  </a>
+                </li>
+                <li class="nav-main-item">
+                  <a class="nav-main-link" href="be_pages_ecom_orders.html">
+                    <span class="nav-main-link-name">Orders</span>
+                  </a>
+                </li>
+                <li class="nav-main-item">
+                  <a class="nav-main-link" href="be_pages_ecom_order.html">
+                    <span class="nav-main-link-name">Order</span>
+                  </a>
+                </li>
+                <li class="nav-main-item">
+                  <a class="nav-main-link active" href="be_pages_ecom_products.html">
+                    <span class="nav-main-link-name">Products</span>
+                  </a>
+                </li>
+                <li class="nav-main-item">
+                  <a class="nav-main-link" href="be_pages_ecom_product_edit.html">
+                    <span class="nav-main-link-name">Product Edit</span>
+                  </a>
+                </li>
+                <li class="nav-main-item">
+                  <a class="nav-main-link" href="be_pages_ecom_customer.html">
+                    <span class="nav-main-link-name">Customer</span>
+                  </a>
+                </li>
+              </ul>
             </li>
           </ul>
         </div>
@@ -340,7 +440,7 @@
           <div class="dropdown d-inline-block">
             <button type="button" class="btn btn-alt-secondary" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <i class="fa fa-fw fa-user d-sm-none"></i>
-              <span class="d-none d-sm-inline-block">Admin</span>
+              <span class="d-none d-sm-inline-block">{{ Auth::user()->name }}</span>
               <i class="fa fa-fw fa-angle-down opacity-50 ms-1 d-none d-sm-inline-block"></i>
             </button>
             <div class="dropdown-menu dropdown-menu-end p-0" aria-labelledby="page-header-user-dropdown">
@@ -348,7 +448,7 @@
                 User Options
               </div>
               <div class="p-2">
-                <a class="dropdown-item" href="javascript:void(0)">
+                <a class="dropdown-item" href="{{route('profile.edit')}}">
                   <i class="far fa-fw fa-user me-1"></i> Profile
                 </a>
                 <a class="dropdown-item d-flex align-items-center justify-content-between" href="javascript:void(0)">
@@ -368,9 +468,13 @@
                 <!-- END Side Overlay -->
 
                 <div role="separator" class="dropdown-divider"></div>
-                <a class="dropdown-item" href="javascript:void(0)">
-                  <i class="far fa-fw fa-arrow-alt-circle-left me-1"></i> Sign Out
-                </a>
+                <!-- Authentication -->
+                <form method="POST" action="{{ route('logout') }}">
+                  @csrf
+                  <a class="dropdown-item" href="{{route('logout')}}" onclick="event.preventDefault(); this.closest('form').submit();">
+                    <i class="far fa-fw fa-arrow-alt-circle-left me-1"></i> Sign Out
+                  </a>
+                </form>
               </div>
             </div>
           </div>

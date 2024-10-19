@@ -71,6 +71,17 @@ class pageTablesDatatables {
       pageLength: 5,
       autoWidth: false,
     });
+
+    // Init responsive DataTable
+    jQuery('.js-dataTable-responsive').DataTable({
+      paging: false, // Desactiva la paginación
+      info: false, // Oculta el texto de información "Page x of y"
+      lengthChange: false, // Desactiva el menú de selección de longitud
+      autoWidth: false,
+      responsive: true,
+      scrollCollapse: true,
+      searching: true,
+    });
 	}
 
 	/*
