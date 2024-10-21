@@ -21,12 +21,12 @@ class ProductoController extends Controller
                         ->orWhere('caracteristica','LIKE', '%'.$texto.'%')
                         ->select('nombre','caracteristica','stock','precio','id')
                         ->orderBy('id', 'desc')
-                        ->paginate(20)
+                        ->paginate(30)
                         ->withQueryString();
         } else {
             $productos = Producto::select('nombre','caracteristica','stock','precio','id')
                         ->orderBy('id', 'desc')
-                        ->paginate(20);
+                        ->paginate(30);
         }
         return view('productos.indexProducto', compact('productos','totalProductos','productosFueraDeStock'));
     }
@@ -103,6 +103,6 @@ class ProductoController extends Controller
     {
         $producto->delete(); // Esto usará el SoftDeletes
 
-        return redirect()->route('productos.index')->with('success', 'ok');
+        return redirect()->route('productos.index')->with('success', 'Producto eliminado correctamente');
     }
 }

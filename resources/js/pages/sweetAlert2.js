@@ -116,24 +116,25 @@ class pageDialogs {
       swalConfirms.forEach(swalConfirm => {
         swalConfirm.addEventListener('submit', function(e) {
           e.preventDefault(); // Prevengo la acción por defecto del formulario
-          const productName = e.target.dataset.productName; // Asumiendo que el nombre del producto está en un atributo data
-      
+          const elementName = e.target.dataset.elementName; // Asumiendo que el nombre del producto está en un atributo data
+          const elementItem = e.target.dataset.elementItem;
           toast.fire({
-            title: 'Are you sure?',
-            text: `Do you want to delete the product "${productName}"?`,
+            title: `¿Estás seguro de eliminar el registro ${elementItem}?`,
+            text: `Esta operación es irreversible`,
             icon: 'warning',
             showCancelButton: true,
             customClass: {
               confirmButton: 'btn btn-danger m-1',
               cancelButton: 'btn btn-secondary m-1'
             },
-            confirmButtonText: 'Yes, delete it!',
+            confirmButtonText: 'Si, borremos esto',
+            cancelButtonText: 'Cancelar',
             html: false
           }).then(result => {
             if (result.value) {
               this.submit();
             } else if (result.dismiss === 'cancel') {
-              toast.fire('Cancelled', 'No changes were made.', 'error');
+              toast.fire('Cancelado', 'No se realizaron cambios', 'error');
             }
           });
         });

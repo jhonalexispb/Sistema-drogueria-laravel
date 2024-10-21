@@ -48,41 +48,13 @@
 
         <!-- All Products -->
         <div class="block block-rounded">
-            <div class="block-header block-header-default">
-                <h3 class="block-title">All Products</h3>
-                <div class="block-options">
-                    <div class="dropdown">
-                        <button type="button" class="btn btn-alt-secondary" id="dropdown-ecom-filters"
-                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Filters <i class="fa fa-angle-down ms-1"></i>
-                        </button>
-                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-ecom-filters">
-                            <a class="dropdown-item d-flex align-items-center justify-content-between"
-                                href="javascript:void(0)">
-                                New
-                                <span class="badge bg-success rounded-pill">260</span>
-                            </a>
-                            <a class="dropdown-item d-flex align-items-center justify-content-between"
-                                href="javascript:void(0)">
-                                Out of Stock
-                                <span class="badge bg-danger rounded-pill">63</span>
-                            </a>
-                            <a class="dropdown-item d-flex align-items-center justify-content-between"
-                                href="javascript:void(0)">
-                                All
-                                <span class="badge bg-black-50 rounded-pill">36k</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <div class="block-content bg-body-dark">
                 <!-- Search Form -->
                 <form action="{{route('productos.index')}}" method="GET" {{-- onsubmit="return false;" --}}>
                   <div class="mb-4 input-group">
                       <input type="text" class="form-control form-control-alt" id="dm-ecom-products-search"
                           name="busqueda" placeholder="Search all products.." value="{{request('busqueda')}}" autocomplete="off">
-                      <button type="submit" class="btn btn-primary">Buscar</button>
+                      <button type="submit" class="btn btn-primary submit-button">Buscar</button>
                   </div>
                 </form>
                 <!-- END Search Form -->
@@ -124,7 +96,7 @@
                                     <i class="fa fa-fw fa-pen-to-square"></i>
                                 </a>
 
-                                <form action="{{route('productos.destroy',$p->id)}}" class="js-swal-confirm" data-product-name="{{ $p->nombre }}" data-product-id="{{ $p->id }}" method="POST">
+                                <form action="{{route('productos.destroy',$p->id)}}" class="js-swal-confirm" data-element-item="{{ $p->nombre .' '.$p->caracteristica}}" data-product-id="{{ $p->id }}" method="POST">
                                     @method('DELETE')
                                     @csrf
                                     <button type="submit" class="btn btn-alt-secondary push mb-md-0">
@@ -165,11 +137,25 @@
         <script>
             document.addEventListener('DOMContentLoaded', function() {
                 Swal.fire({
-                title: "Good job!",
-                text: "You clicked the button!",
+                title: "¡Buen trabajo!",
+                text: "{{ session('success') }}",
                 icon: "success"
                 });
             });
         </script>
     @endif
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const submitButton = document.querySelector('.submit-button');
+            submitButton.addEventListener('click', function(event) {
+                this.disabled = true; // Deshabilitar el botón
+                this.innerText = 'Buscando...'; // Cambia el texto del botón
+                const form = this.closest('form');
+                if (form) {
+                    form.submit(); // Envía el formulario
+                }
+            });
+        });
+    </script>
 @endsection

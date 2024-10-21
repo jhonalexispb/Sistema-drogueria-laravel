@@ -143,7 +143,7 @@
                                     </div>
                                 </div> --}}
                                 <div class="mb-4">
-                                    <button type="submit" class="btn btn-alt-primary">Editar</button>
+                                    <button type="submit" class="btn btn-alt-primary submit-button">Editar</button>
                                 </div>
                             </div>
                         </form>
@@ -160,4 +160,17 @@
     <script src="{{ asset('js/plugins/select2/js/select2.full.min.js') }}"></script>
     <script src="{{ asset('js/plugins/dropzone/min/dropzone.min.js') }}"></script>
     <script type="module">Dashmix.helpersOnLoad(['jq-select2']);</script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const submitButton = document.querySelector('.submit-button');
+            submitButton.addEventListener('click', function(event) {
+                this.disabled = true; // Deshabilitar el botón
+                this.innerText = 'Editando...'; // Cambia el texto del botón
+                const form = this.closest('form');
+                if (form) {
+                    form.submit(); // Envía el formulario
+                }
+            });
+        });
+    </script>
 @endsection

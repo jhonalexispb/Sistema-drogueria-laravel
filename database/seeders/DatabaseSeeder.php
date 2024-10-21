@@ -22,6 +22,6 @@ class DatabaseSeeder extends Seeder
             'password' => '12345678',
         ]);
 
-        Producto::factory(30)->create();
+        Producto::factory(100)->create();
     }
 }

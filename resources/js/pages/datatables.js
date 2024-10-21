@@ -80,7 +80,7 @@ class pageTablesDatatables {
       autoWidth: false,
       responsive: true,
       scrollCollapse: true,
-      searching: true,
+      searching: false,
     });
 	}
 
