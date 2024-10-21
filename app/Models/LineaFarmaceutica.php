@@ -8,12 +8,12 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use OwenIt\Auditing\Contracts\Auditable as AuditableContract; 
 use OwenIt\Auditing\Auditable;
 
-class Laboratorio extends Model implements AuditableContract
+class LineaFarmaceutica extends Model implements AuditableContract
 {
-    use HasFactory, SoftDeletes, Auditable;
+    use HasFactory, Auditable, SoftDeletes;
 
-    protected $fillable = ['nombre','margen_minimo'];
-    protected $table = 'laboratorios';
+    protected $fillable = ['nombre'];
+    protected $table = 'lineas_farmaceuticas';
 
     public function productos()
     {

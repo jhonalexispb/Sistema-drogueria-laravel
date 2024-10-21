@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\Laboratorio;
+use App\Models\LineaFarmaceutica;
 use App\Models\Producto;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -20,8 +22,18 @@ class DatabaseSeeder extends Seeder
             'name' => 'Test User',
             'email' => 'test@example.com',
             'password' => '12345678',
-        ]);
+            ]
+        );
 
-        Producto::factory(100)->create();
+        User::factory()->create([
+            'name' => 'Alexis',
+            'email' => 'jhonalexispb@gmail.com',
+            'password' => '12345678',
+            ]
+        );
+
+        Producto::factory(50)->create();
+        Laboratorio::factory(10000)->create();
+        LineaFarmaceutica::factory(10000)->create();
     }
 }

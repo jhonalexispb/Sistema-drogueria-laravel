@@ -59,28 +59,38 @@
                                         <span class="text-danger">{{$message}}</span>
                                     @enderror
                                 </div> --}}
-                                {{-- <div class="mb-4 col-md-6 col-lg-4">
+                                <div class="mb-4 col-md-6 col-lg-4">
                                     <!-- Select2 (.js-select2 class is initialized in Helpers.jqSelect2()) -->
                                     <!-- For more info and examples you can check out https://github.com/select2/select2 -->
                                     <label class="form-label" for="laboratorio">Laboratorio <span class="text-danger">*</span></label>
-                                    <select class="js-select2 form-select" id="laboratorio" name="laboratorio" style="width: 100%;" data-placeholder="Choose one.." value="{{old('laboratorio')}}">
+                                    <select class="js-select2 form-select" id="laboratorio" name="laboratorio" style="width: 100%;" data-placeholder="Choose one..">
                                         <option></option><!-- Required for data-placeholder attribute to work with Select2 plugin -->
-                                        <option value="html" {{ old('laboratorio') == 'html' ? 'selected' : '' }}>HTML</option>
-                                        <option value="css" {{ old('laboratorio') == 'css' ? 'selected' : '' }}>CSS</option>
-                                        <option value="javascript" {{ old('laboratorio') == 'javascript' ? 'selected' : '' }}>JavaScript</option>
-                                        <option value="angular" {{ old('laboratorio') == 'angular' ? 'selected' : '' }}>Angular</option>
-                                        <option value="react" {{ old('laboratorio') == 'react' ? 'selected' : '' }}>React</option>
-                                        <option value="vuejs" {{ old('laboratorio') == 'vuejs' ? 'selected' : '' }}>Vue.js</option>
-                                        <option value="ruby" {{ old('laboratorio') == 'ruby' ? 'selected' : '' }}>Ruby</option>
-                                        <option value="php" {{ old('laboratorio') == 'php' ? 'selected' : '' }}>PHP</option>
-                                        <option value="asp" {{ old('laboratorio') == 'asp' ? 'selected' : '' }}>ASP.NET</option>
-                                        <option value="python" {{ old('laboratorio') == 'python' ? 'selected' : '' }}>Python</option>
-                                        <option value="mysql" {{ old('laboratorio') == 'mysql' ? 'selected' : '' }}>MySQL</option>
+                                        @foreach ($laboratorios as $lab)
+                                            <option value="{{ $lab->id }}" {{ (old('laboratorio', $producto->laboratorio) == $lab->id) ? 'selected' : '' }}>
+                                                {{ $lab->nombre }}
+                                            </option>
+                                        @endforeach
                                     </select>
                                     @error('laboratorio')
                                         <span class="text-danger">{{$message}}</span>
                                     @enderror
-                                </div> --}}
+                                </div>
+                                <div class="mb-4 col-md-6 col-lg-4">
+                                    <!-- Select2 (.js-select2 class is initialized in Helpers.jqSelect2()) -->
+                                    <!-- For more info and examples you can check out https://github.com/select2/select2 -->
+                                    <label class="form-label" for="linea_farmaceutica">Linea Farmaceútica <span class="text-danger">*</span></label>
+                                    <select class="js-select2 form-select" id="linea_farmaceutica" name="linea_farmaceutica" style="width: 100%;" data-placeholder="Choose one..">
+                                        <option></option><!-- Required for data-placeholder attribute to work with Select2 plugin -->
+                                        @foreach ($lineasFarmaceuticas as $linea)
+                                            <option value="{{ $linea->id }}" {{ (old('linea_farmaceutica', $producto->linea_farmaceutica) == $linea->id) ? 'selected' : '' }}>
+                                                {{ $linea->nombre }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                    @error('linea_farmaceutica')
+                                        <span class="text-danger">{{$message}}</span>
+                                    @enderror
+                                </div>
 
                                 {{-- <div class="mb-4 col-md-6 col-lg-4">
                                     <label class="form-label" for="codigo-barra">Codigo de barra</label>

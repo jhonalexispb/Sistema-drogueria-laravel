@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Laboratorio;
+use App\Models\LineaFarmaceutica;
 use App\Models\Producto;
 use Illuminate\Http\Request;
 
@@ -35,8 +37,10 @@ class ProductoController extends Controller
      * Show the form for creating a new resource.
      */
     public function create()
-    {
-        return view('productos.createProducto');
+    {   
+        $laboratorios = Laboratorio::all();
+        $lineasFarmaceuticas  = LineaFarmaceutica::all();
+        return view('productos.createProducto', compact('laboratorios','lineasFarmaceuticas'));
     }
 
     /**
@@ -47,8 +51,9 @@ class ProductoController extends Controller
         $request->validate([
             /* 'codigo'=>'required', */
             /* 'tipo-producto' =>'required',
-            'sale-boleta' =>'required',
-            'laboratorio' =>'required', */
+            'sale-boleta' =>'required', */
+            'laboratorio' =>'required|exists:laboratorios,id',
+            'linea_farmaceutica' =>'required|exists:lineas_farmaceuticas,id',
             'nombre' =>'required|max:255',
             'caracteristica' =>'required|max:255',
             /* 'condicion-almacenamiento' =>'required', */
@@ -73,8 +78,10 @@ class ProductoController extends Controller
      * Show the form for editing the specified resource.
      */
     public function edit(Producto $producto)
-    {
-        return view('productos.editProducto', compact('producto'));
+    {   
+        $laboratorios = Laboratorio::all();
+        $lineasFarmaceuticas = LineaFarmaceutica::all();
+        return view('productos.editProducto', compact('producto', 'laboratorios', 'lineasFarmaceuticas'));
     }
 
     /**
@@ -85,8 +92,9 @@ class ProductoController extends Controller
         $request->validate([
             /* 'codigo'=>'required', */
             /* 'tipo-producto' =>'required',
-            'sale-boleta' =>'required',
-            'laboratorio' =>'required', */
+            'sale-boleta' =>'required', */
+            'laboratorio' =>'required|exists:laboratorios,id',
+            'linea_farmaceutica' =>'required|exists:lineas_farmaceuticas,id',
             'nombre' =>'required|max:255',
             'caracteristica' =>'required|max:255',
             /* 'condicion-almacenamiento' =>'required', */
