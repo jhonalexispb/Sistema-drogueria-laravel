@@ -107,7 +107,7 @@
 
             <!-- Close Side Overlay -->
             <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
-            <a class="ms-auto text-white" href="javascript:void(0)" data-toggle="layout" data-action="side_overlay_close">
+            <a class="text-white ms-auto" href="javascript:void(0)" data-toggle="layout" data-action="side_overlay_close">
               <i class="fa fa-times-circle"></i>
             </a>
             <!-- END Close Side Overlay -->
@@ -118,18 +118,18 @@
 
       <!-- Side Content -->
       <div class="content-side">
-        <div class="block pull-x mb-0">
+        <div class="block mb-0 pull-x">
           <!-- Sidebar -->
           <div class="block-content block-content-sm block-content-full bg-body">
             <span class="text-uppercase fs-sm fw-bold">Sidebar</span>
           </div>
           <div class="block-content block-content-full">
-            <div class="row g-sm text-center">
-              <div class="col-6 mb-1">
-                <a class="d-block py-3 bg-body-dark fw-semibold text-dark" data-toggle="layout" data-action="sidebar_style_dark" href="javascript:void(0)">Dark</a>
+            <div class="text-center row g-sm">
+              <div class="mb-1 col-6">
+                <a class="py-3 d-block bg-body-dark fw-semibold text-dark" data-toggle="layout" data-action="sidebar_style_dark" href="javascript:void(0)">Dark</a>
               </div>
-              <div class="col-6 mb-1">
-                <a class="d-block py-3 bg-body-dark fw-semibold text-dark" data-toggle="layout" data-action="sidebar_style_light" href="javascript:void(0)">Light</a>
+              <div class="mb-1 col-6">
+                <a class="py-3 d-block bg-body-dark fw-semibold text-dark" data-toggle="layout" data-action="sidebar_style_light" href="javascript:void(0)">Light</a>
               </div>
             </div>
           </div>
@@ -140,18 +140,18 @@
             <span class="text-uppercase fs-sm fw-bold">Header</span>
           </div>
           <div class="block-content block-content-full">
-            <div class="row g-sm text-center mb-2">
-              <div class="col-6 mb-1">
-                <a class="d-block py-3 bg-body-dark fw-semibold text-dark" data-toggle="layout" data-action="header_style_dark" href="javascript:void(0)">Dark</a>
+            <div class="mb-2 text-center row g-sm">
+              <div class="mb-1 col-6">
+                <a class="py-3 d-block bg-body-dark fw-semibold text-dark" data-toggle="layout" data-action="header_style_dark" href="javascript:void(0)">Dark</a>
               </div>
-              <div class="col-6 mb-1">
-                <a class="d-block py-3 bg-body-dark fw-semibold text-dark" data-toggle="layout" data-action="header_style_light" href="javascript:void(0)">Light</a>
+              <div class="mb-1 col-6">
+                <a class="py-3 d-block bg-body-dark fw-semibold text-dark" data-toggle="layout" data-action="header_style_light" href="javascript:void(0)">Light</a>
               </div>
-              <div class="col-6 mb-1">
-                <a class="d-block py-3 bg-body-dark fw-semibold text-dark" data-toggle="layout" data-action="header_mode_fixed" href="javascript:void(0)">Fixed</a>
+              <div class="mb-1 col-6">
+                <a class="py-3 d-block bg-body-dark fw-semibold text-dark" data-toggle="layout" data-action="header_mode_fixed" href="javascript:void(0)">Fixed</a>
               </div>
-              <div class="col-6 mb-1">
-                <a class="d-block py-3 bg-body-dark fw-semibold text-dark" data-toggle="layout" data-action="header_mode_static" href="javascript:void(0)">Static</a>
+              <div class="mb-1 col-6">
+                <a class="py-3 d-block bg-body-dark fw-semibold text-dark" data-toggle="layout" data-action="header_mode_static" href="javascript:void(0)">Static</a>
               </div>
             </div>
           </div>
@@ -162,21 +162,21 @@
             <span class="text-uppercase fs-sm fw-bold">Content</span>
           </div>
           <div class="block-content block-content-full">
-            <div class="row g-sm text-center">
-              <div class="col-6 mb-1">
-                <a class="d-block py-3 bg-body-dark fw-semibold text-dark" data-toggle="layout" data-action="content_layout_boxed" href="javascript:void(0)">Boxed</a>
+            <div class="text-center row g-sm">
+              <div class="mb-1 col-6">
+                <a class="py-3 d-block bg-body-dark fw-semibold text-dark" data-toggle="layout" data-action="content_layout_boxed" href="javascript:void(0)">Boxed</a>
               </div>
-              <div class="col-6 mb-1">
-                <a class="d-block py-3 bg-body-dark fw-semibold text-dark" data-toggle="layout" data-action="content_layout_narrow" href="javascript:void(0)">Narrow</a>
+              <div class="mb-1 col-6">
+                <a class="py-3 d-block bg-body-dark fw-semibold text-dark" data-toggle="layout" data-action="content_layout_narrow" href="javascript:void(0)">Narrow</a>
               </div>
-              <div class="col-12 mb-1">
-                <a class="d-block py-3 bg-body-dark fw-semibold text-dark" data-toggle="layout" data-action="content_layout_full_width" href="javascript:void(0)">Full Width</a>
+              <div class="mb-1 col-12">
+                <a class="py-3 d-block bg-body-dark fw-semibold text-dark" data-toggle="layout" data-action="content_layout_full_width" href="javascript:void(0)">Full Width</a>
               </div>
             </div>
           </div>
           <!-- END Content -->
         </div>
-        <div class="block pull-x mb-0">
+        <div class="block mb-0 pull-x">
           <!-- Content -->
           <div class="block-content block-content-sm block-content-full bg-body">
             <span class="text-uppercase fs-sm fw-bold">Heading</span>
@@ -210,7 +210,7 @@
       <div class="bg-header-dark">
         <div class="content-header bg-white-5">
           <!-- Logo -->
-          <a class="fw-semibold text-white tracking-wide" href="/">
+          <a class="tracking-wide text-white fw-semibold" href="/">
             <span class="smini-visible">
               D<span class="opacity-75">x</span>
             </span>
@@ -221,24 +221,24 @@
           <!-- END Logo -->
 
           <!-- Options -->
-          <div class="d-flex align-items-center gap-1">
+          <div class="gap-1 d-flex align-items-center">
             <!-- Dark Mode -->
             <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
             <div class="dropdown">
               <button type="button" class="btn btn-sm btn-alt-secondary" id="sidebar-dark-mode-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="far fa-fw fa-moon" data-dark-mode-icon></i>
               </button>
-              <div class="dropdown-menu dropdown-menu-end smini-hide border-0" aria-labelledby="sidebar-dark-mode-dropdown">
-                <button type="button" class="dropdown-item d-flex align-items-center gap-2" data-toggle="layout" data-action="dark_mode_off" data-dark-mode="off">
-                  <i class="far fa-sun fa-fw opacity-50"></i>
+              <div class="border-0 dropdown-menu dropdown-menu-end smini-hide" aria-labelledby="sidebar-dark-mode-dropdown">
+                <button type="button" class="gap-2 dropdown-item d-flex align-items-center" data-toggle="layout" data-action="dark_mode_off" data-dark-mode="off">
+                  <i class="opacity-50 far fa-sun fa-fw"></i>
                   <span class="fs-sm fw-medium">Light</span>
                 </button>
-                <button type="button" class="dropdown-item d-flex align-items-center gap-2" data-toggle="layout" data-action="dark_mode_on" data-dark-mode="on">
-                  <i class="far fa-moon fa-fw opacity-50"></i>
+                <button type="button" class="gap-2 dropdown-item d-flex align-items-center" data-toggle="layout" data-action="dark_mode_on" data-dark-mode="on">
+                  <i class="opacity-50 far fa-moon fa-fw"></i>
                   <span class="fs-sm fw-medium">Dark</span>
                 </button>
-                <button type="button" class="dropdown-item d-flex align-items-center gap-2" data-toggle="layout" data-action="dark_mode_system" data-dark-mode="system">
-                  <i class="fa fa-desktop fa-fw opacity-50"></i>
+                <button type="button" class="gap-2 dropdown-item d-flex align-items-center" data-toggle="layout" data-action="dark_mode_system" data-dark-mode="system">
+                  <i class="opacity-50 fa fa-desktop fa-fw"></i>
                   <span class="fs-sm fw-medium">System</span>
                 </button>
               </div>
@@ -249,57 +249,57 @@
               <button type="button" class="btn btn-sm btn-alt-secondary" id="sidebar-themes-dropdown" data-bs-auto-close="outside" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fa fa-fw fa-paint-brush"></i>
               </button>
-              <div class="dropdown-menu dropdown-menu-end fs-sm border-0" aria-labelledby="sidebar-themes-dropdown">
+              <div class="border-0 dropdown-menu dropdown-menu-end fs-sm" aria-labelledby="sidebar-themes-dropdown">
                 <!-- Color Themes -->
                 <!-- Layout API, functionality initialized in Template._uiHandleTheme() -->
-                <div class="row g-sm text-center">
-                  <div class="col-4 mb-1">
-                    <a class="d-block py-3 text-white fs-xs fw-semibold bg-default rounded-1" data-toggle="theme" data-theme="default" href="#">
+                <div class="text-center row g-sm">
+                  <div class="mb-1 col-4">
+                    <a class="py-3 text-white d-block fs-xs fw-semibold bg-default rounded-1" data-toggle="theme" data-theme="default" href="#">
                       Default
                     </a>
                   </div>
-                  <div class="col-4 mb-1">
-                    <a class="d-block py-3 text-white fs-xs fw-semibold bg-xwork rounded-1" data-toggle="theme" data-theme="assets/css/themes/xwork.min.css" href="#">
+                  <div class="mb-1 col-4">
+                    <a class="py-3 text-white d-block fs-xs fw-semibold bg-xwork rounded-1" data-toggle="theme" data-theme="assets/css/themes/xwork.min.css" href="#">
                       xWork
                     </a>
                   </div>
-                  <div class="col-4 mb-1">
-                    <a class="d-block py-3 text-white fs-xs fw-semibold bg-xmodern rounded-1" data-toggle="theme" data-theme="assets/css/themes/xmodern.min.css" href="#">
+                  <div class="mb-1 col-4">
+                    <a class="py-3 text-white d-block fs-xs fw-semibold bg-xmodern rounded-1" data-toggle="theme" data-theme="assets/css/themes/xmodern.min.css" href="#">
                       xModern
                     </a>
                   </div>
-                  <div class="col-4 mb-1">
-                    <a class="d-block py-3 text-white fs-xs fw-semibold bg-xeco rounded-1" data-toggle="theme" data-theme="assets/css/themes/xeco.min.css" href="#">
+                  <div class="mb-1 col-4">
+                    <a class="py-3 text-white d-block fs-xs fw-semibold bg-xeco rounded-1" data-toggle="theme" data-theme="assets/css/themes/xeco.min.css" href="#">
                       xEco
                     </a>
                   </div>
-                  <div class="col-4 mb-1">
-                    <a class="d-block py-3 text-white fs-xs fw-semibold bg-xsmooth rounded-1" data-toggle="theme" data-theme="assets/css/themes/xsmooth.min.css" href="#">
+                  <div class="mb-1 col-4">
+                    <a class="py-3 text-white d-block fs-xs fw-semibold bg-xsmooth rounded-1" data-toggle="theme" data-theme="assets/css/themes/xsmooth.min.css" href="#">
                       xSmooth
                     </a>
                   </div>
-                  <div class="col-4 mb-1">
-                    <a class="d-block py-3 text-white fs-xs fw-semibold bg-xinspire rounded-1" data-toggle="theme" data-theme="assets/css/themes/xinspire.min.css" href="#">
+                  <div class="mb-1 col-4">
+                    <a class="py-3 text-white d-block fs-xs fw-semibold bg-xinspire rounded-1" data-toggle="theme" data-theme="assets/css/themes/xinspire.min.css" href="#">
                       xInspire
                     </a>
                   </div>
-                  <div class="col-4 mb-1">
-                    <a class="d-block py-3 text-white fs-xs fw-semibold bg-xdream rounded-1" data-toggle="theme" data-theme="assets/css/themes/xdream.min.css" href="#">
+                  <div class="mb-1 col-4">
+                    <a class="py-3 text-white d-block fs-xs fw-semibold bg-xdream rounded-1" data-toggle="theme" data-theme="assets/css/themes/xdream.min.css" href="#">
                       xDream
                     </a>
                   </div>
-                  <div class="col-4 mb-1">
-                    <a class="d-block py-3 text-white fs-xs fw-semibold bg-xpro rounded-1" data-toggle="theme" data-theme="assets/css/themes/xpro.min.css" href="#">
+                  <div class="mb-1 col-4">
+                    <a class="py-3 text-white d-block fs-xs fw-semibold bg-xpro rounded-1" data-toggle="theme" data-theme="assets/css/themes/xpro.min.css" href="#">
                       xPro
                     </a>
                   </div>
-                  <div class="col-4 mb-1">
-                    <a class="d-block py-3 text-white fs-xs fw-semibold bg-xplay rounded-1" data-toggle="theme" data-theme="assets/css/themes/xplay.min.css" href="#">
+                  <div class="mb-1 col-4">
+                    <a class="py-3 text-white d-block fs-xs fw-semibold bg-xplay rounded-1" data-toggle="theme" data-theme="assets/css/themes/xplay.min.css" href="#">
                       xPlay
                     </a>
                   </div>
                   <div class="col-12">
-                    <a class="d-block py-2 bg-body-dark fs-xs fw-semibold text-dark rounded-1" href="be_ui_color_themes.html">All Color Themes</a>
+                    <a class="py-2 d-block bg-body-dark fs-xs fw-semibold text-dark rounded-1" href="be_ui_color_themes.html">All Color Themes</a>
                   </div>
                 </div>
                 <!-- END Color Themes -->
@@ -331,25 +331,20 @@
               </a>
             </li>
             <li class="nav-main-heading">Almacen</li>
-            <li class="nav-main-item{{ request()->routeIs('productos.*') ? ' open' : '' }}">
+            <li class="nav-main-item{{ request()->routeIs('productos.*') || request()->routeIs('laboratorios.*') || request()->routeIs('categorias.*') || request()->routeIs('lineasFarmaceuticas.*') ? ' open' : '' }}">
               <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="true" href="#">
-                <i class="nav-main-link-icon fa-solid fa-box"></i>
-                <span class="nav-main-link-name">Productos</span>
+                <i class="nav-main-link-icon fa-solid fa-store"> </i>
+                <span class="nav-main-link-name"> Almacen</span>
               </a>
               <ul class="nav-main-submenu">
                 <li class="nav-main-item">
                   <a class="nav-main-link{{ request()->routeIs('productos.index') ? ' active' : '' }}" href="{{route('productos.index')}}">
-                    <span class="nav-main-link-name">Listado</span>
+                    <span class="nav-main-link-name">Productos</span>
                   </a>
                 </li>
                 <li class="nav-main-item">
-                  <a class="nav-main-link{{ request()->is('pages/slick') ? ' active' : '' }}" href="/pages/slick">
-                    <span class="nav-main-link-name">Productos por vencer</span>
-                  </a>
-                </li>
-                <li class="nav-main-item">
-                  <a class="nav-main-link{{ request()->is('pages/blank') ? ' active' : '' }}" href="/pages/blank">
-                    <span class="nav-main-link-name">Blank</span>
+                  <a class="nav-main-link{{ request()->routeIs('laboratorios.index') || request()->routeIs('principios.*') || request()->routeIs('categorias.*') || request()->routeIs('lineasFarmaceuticas.*') ? ' active' : '' }}" href="{{route('laboratorios.index')}}">
+                    <span class="nav-main-link-name">Datos del Producto</span>
                   </a>
                 </li>
               </ul>
@@ -428,7 +423,7 @@
           <!-- Open Search Section -->
           <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
           <button type="button" class="btn btn-alt-secondary" data-toggle="layout" data-action="header_search_on">
-            <i class="fa fa-fw opacity-50 fa-search"></i> <span class="ms-1 d-none d-sm-inline-block">Search</span>
+            <i class="opacity-50 fa fa-fw fa-search"></i> <span class="ms-1 d-none d-sm-inline-block">Search</span>
           </button>
           <!-- END Open Search Section -->
         </div>
@@ -441,10 +436,10 @@
             <button type="button" class="btn btn-alt-secondary" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <i class="fa fa-fw fa-user d-sm-none"></i>
               <span class="d-none d-sm-inline-block">{{ Auth::user()->name }}</span>
-              <i class="fa fa-fw fa-angle-down opacity-50 ms-1 d-none d-sm-inline-block"></i>
+              <i class="opacity-50 fa fa-fw fa-angle-down ms-1 d-none d-sm-inline-block"></i>
             </button>
-            <div class="dropdown-menu dropdown-menu-end p-0" aria-labelledby="page-header-user-dropdown">
-              <div class="bg-primary-dark rounded-top fw-semibold text-white text-center p-3">
+            <div class="p-0 dropdown-menu dropdown-menu-end" aria-labelledby="page-header-user-dropdown">
+              <div class="p-3 text-center text-white bg-primary-dark rounded-top fw-semibold">
                 User Options
               </div>
               <div class="p-2">
@@ -485,13 +480,13 @@
             <button type="button" class="btn btn-alt-secondary" id="page-header-notifications-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <i class="fa fa-fw fa-bell"></i>
             </button>
-            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0" aria-labelledby="page-header-notifications-dropdown">
-              <div class="bg-primary-dark rounded-top fw-semibold text-white text-center p-3">
+            <div class="p-0 dropdown-menu dropdown-menu-lg dropdown-menu-end" aria-labelledby="page-header-notifications-dropdown">
+              <div class="p-3 text-center text-white bg-primary-dark rounded-top fw-semibold">
                 Notifications
               </div>
-              <ul class="nav-items my-2">
+              <ul class="my-2 nav-items">
                 <li>
-                  <a class="d-flex text-dark py-2" href="javascript:void(0)">
+                  <a class="py-2 d-flex text-dark" href="javascript:void(0)">
                     <div class="flex-shrink-0 mx-3">
                       <i class="fa fa-fw fa-check-circle text-success"></i>
                     </div>
@@ -502,7 +497,7 @@
                   </a>
                 </li>
                 <li>
-                  <a class="d-flex text-dark py-2" href="javascript:void(0)">
+                  <a class="py-2 d-flex text-dark" href="javascript:void(0)">
                     <div class="flex-shrink-0 mx-3">
                       <i class="fa fa-fw fa-user-plus text-info"></i>
                     </div>
@@ -514,7 +509,7 @@
                   </a>
                 </li>
                 <li>
-                  <a class="d-flex text-dark py-2" href="javascript:void(0)">
+                  <a class="py-2 d-flex text-dark" href="javascript:void(0)">
                     <div class="flex-shrink-0 mx-3">
                       <i class="fa fa-fw fa-times-circle text-danger"></i>
                     </div>
@@ -525,7 +520,7 @@
                   </a>
                 </li>
                 <li>
-                  <a class="d-flex text-dark py-2" href="javascript:void(0)">
+                  <a class="py-2 d-flex text-dark" href="javascript:void(0)">
                     <div class="flex-shrink-0 mx-3">
                       <i class="fa fa-fw fa-exclamation-circle text-warning"></i>
                     </div>
@@ -537,7 +532,7 @@
                   </a>
                 </li>
                 <li>
-                  <a class="d-flex text-dark py-2" href="javascript:void(0)">
+                  <a class="py-2 d-flex text-dark" href="javascript:void(0)">
                     <div class="flex-shrink-0 mx-3">
                       <i class="fa fa-fw fa-plus-circle text-primary"></i>
                     </div>
@@ -549,8 +544,8 @@
                 </li>
               </ul>
               <div class="p-2 border-top">
-                <a class="btn btn-alt-primary w-100 text-center" href="javascript:void(0)">
-                  <i class="fa fa-fw fa-eye opacity-50 me-1"></i> View All
+                <a class="text-center btn btn-alt-primary w-100" href="javascript:void(0)">
+                  <i class="opacity-50 fa fa-fw fa-eye me-1"></i> View All
                 </a>
               </div>
             </div>
@@ -578,7 +573,7 @@
               <button type="button" class="btn btn-alt-primary" data-toggle="layout" data-action="header_search_off">
                 <i class="fa fa-fw fa-times-circle"></i>
               </button>
-              <input type="text" class="form-control border-0" placeholder="Search or hit ESC.." id="page-header-search-input" name="page-header-search-input">
+              <input type="text" class="border-0 form-control" placeholder="Search or hit ESC.." id="page-header-search-input" name="page-header-search-input">
             </div>
           </form>
         </div>
@@ -590,8 +585,8 @@
       <div id="page-header-loader" class="overlay-header bg-header-dark">
         <div class="bg-white-10">
           <div class="content-header">
-            <div class="w-100 text-center">
-              <i class="fa fa-fw fa-sun fa-spin text-white"></i>
+            <div class="text-center w-100">
+              <i class="text-white fa fa-fw fa-sun fa-spin"></i>
             </div>
           </div>
         </div>
@@ -608,12 +603,12 @@
 
     <!-- Footer -->
     <footer id="page-footer" class="bg-body-light">
-      <div class="content py-0">
+      <div class="py-0 content">
         <div class="row fs-sm">
-          <div class="col-sm-6 order-sm-2 mb-1 mb-sm-0 text-center text-sm-end">
+          <div class="mb-1 text-center col-sm-6 order-sm-2 mb-sm-0 text-sm-end">
             Crafted with <i class="fa fa-heart text-danger"></i> by <a class="fw-semibold" href="https://pixelcave.com" target="_blank">pixelcave</a>
           </div>
-          <div class="col-sm-6 order-sm-1 text-center text-sm-start">
+          <div class="text-center col-sm-6 order-sm-1 text-sm-start">
             <a class="fw-semibold" href="https://pixelcave.com/products/dashmix" target="_blank">Dashmix</a> &copy;
             <span data-toggle="year-copy"></span>
           </div>

@@ -11,8 +11,19 @@ class LineaFarmaceuticaController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {
-        //
+    {   
+        $totalLineasFarmaceuticas = LineaFarmaceutica::count();
+        if(request('busqueda')){
+            $texto = request('busqueda');
+            $lineasFarmaceuticas = LineaFarmaceutica::where('nombre','LIKE', '%'.$texto.'%')
+                        ->select('nombre','id')
+                        ->paginate(30)
+                        ->withQueryString();
+        } else {
+            $lineasFarmaceuticas = LineaFarmaceutica::select('nombre','id')
+                        ->paginate(30);
+        }
+        return view('lineas-farmaceuticas.indexLineaFarmaceutica', compact('lineasFarmaceuticas','totalLineasFarmaceuticas'));
     }
 
     /**

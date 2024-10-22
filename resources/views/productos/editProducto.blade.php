@@ -2,6 +2,8 @@
 @section('css')
     <link rel="stylesheet" href="{{ asset('js/plugins/select2/css/select2.min.css') }}">
     <link rel="stylesheet" href="{{ asset('js/plugins/dropzone/min/dropzone.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('js/plugins/selectize/css/selectize.bootstrap5.css') }}">
+    <link rel="stylesheet" href="{{ asset('js/plugins/selectize/css/style.css') }}">
 @endsection
 @section('content')
     <!-- Page Content -->
@@ -63,7 +65,7 @@
                                     <!-- Select2 (.js-select2 class is initialized in Helpers.jqSelect2()) -->
                                     <!-- For more info and examples you can check out https://github.com/select2/select2 -->
                                     <label class="form-label" for="laboratorio">Laboratorio <span class="text-danger">*</span></label>
-                                    <select class="js-select2 form-select" id="laboratorio" name="laboratorio" style="width: 100%;" data-placeholder="Choose one..">
+                                    <select class="form-control select-dinamico-selectize" id="laboratorio" name="laboratorio" style="width: 100%;" data-placeholder="Choose one..">
                                         <option></option><!-- Required for data-placeholder attribute to work with Select2 plugin -->
                                         @foreach ($laboratorios as $lab)
                                             <option value="{{ $lab->id }}" {{ (old('laboratorio', $producto->laboratorio) == $lab->id) ? 'selected' : '' }}>
@@ -79,7 +81,7 @@
                                     <!-- Select2 (.js-select2 class is initialized in Helpers.jqSelect2()) -->
                                     <!-- For more info and examples you can check out https://github.com/select2/select2 -->
                                     <label class="form-label" for="linea_farmaceutica">Linea Farmaceútica <span class="text-danger">*</span></label>
-                                    <select class="js-select2 form-select" id="linea_farmaceutica" name="linea_farmaceutica" style="width: 100%;" data-placeholder="Choose one..">
+                                    <select class="form-control select-dinamico-selectize" id="linea_farmaceutica" name="linea_farmaceutica" style="width: 100%;" data-placeholder="Choose one..">
                                         <option></option><!-- Required for data-placeholder attribute to work with Select2 plugin -->
                                         @foreach ($lineasFarmaceuticas as $linea)
                                             <option value="{{ $linea->id }}" {{ (old('linea_farmaceutica', $producto->linea_farmaceutica) == $linea->id) ? 'selected' : '' }}>
@@ -169,6 +171,7 @@
     <script src="{{ asset('js/lib/jquery.min.js') }}"></script>
     <script src="{{ asset('js/plugins/select2/js/select2.full.min.js') }}"></script>
     <script src="{{ asset('js/plugins/dropzone/min/dropzone.min.js') }}"></script>
+    <script src="{{ asset('js/plugins/selectize/js/selectize.min.js') }}"></script>
     <script type="module">Dashmix.helpersOnLoad(['jq-select2']);</script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -181,6 +184,15 @@
                     form.submit(); // Envía el formulario
                 }
             });
+
+            //Inicializando selectize
+            const laboratorioSelect = document.getElementsByClassName('select-dinamico-selectize')
+            if (laboratorioSelect) {
+                $(laboratorioSelect).selectize({
+                    placeholder: 'Escoge uno..',
+                    allowEmptyOption: true,
+                });
+            }
         });
     </script>
 @endsection

@@ -23,3 +23,5 @@ Route::view('/pages/blank', 'pages.blank'); */
 
 require __DIR__.'/auth.php';
 require __DIR__ . '/productos.php';
+require __DIR__ . '/laboratorios.php';
+require __DIR__ . '/lineasFarmaceuticas.php';

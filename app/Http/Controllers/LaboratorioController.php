@@ -11,8 +11,19 @@ class LaboratorioController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {
-        //
+    {   
+        $totalLaboratorios = Laboratorio::count();
+        if(request('busqueda')){
+            $texto = request('busqueda');
+            $laboratorios = Laboratorio::where('nombre','LIKE', '%'.$texto.'%')
+                        ->select('nombre','id','codigo','margen_minimo')
+                        ->paginate(30)
+                        ->withQueryString();
+        } else {
+            $laboratorios = Laboratorio::select('nombre','id','codigo','margen_minimo')
+                        ->paginate(30);
+        }
+        return view('laboratorios.indexLaboratorio', compact('laboratorios','totalLaboratorios'));
     }
 
     /**

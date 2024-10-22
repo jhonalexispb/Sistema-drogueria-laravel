@@ -2,6 +2,8 @@
 @section('css')
     <link rel="stylesheet" href="{{ asset('js/plugins/select2/css/select2.min.css') }}">
     <link rel="stylesheet" href="{{ asset('js/plugins/dropzone/min/dropzone.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('js/plugins/selectize/css/selectize.bootstrap5.css') }}">
+    <link rel="stylesheet" href="{{ asset('js/plugins/selectize/css/style.css') }}">
 @endsection
 @section('content')
     <!-- Page Content -->
@@ -59,16 +61,8 @@
                                     @enderror
                                 </div> --}}
                                 <div class="mb-4 col-md-6 col-lg-4">
-                                    <!-- Select2 (.js-select2 class is initialized in Helpers.jqSelect2()) -->
-                                    <!-- For more info and examples you can check out https://github.com/select2/select2 -->
                                     <label class="form-label" for="laboratorio">Laboratorio <span class="text-danger">*</span></label>
-                                    {{-- <select class="js-select2 form-select" id="laboratorio" name="laboratorio" style="width: 100%;" data-placeholder="Choose one..">
-                                        <option></option><!-- Required for data-placeholder attribute to work with Select2 plugin -->
-                                        @foreach ($laboratorios as $lab)
-                                            <option {{ old('laboratorio') == $lab->id ? 'selected' : '' }} value="{{$lab->id}}">{{$lab->nombre}}</option>
-                                        @endforeach
-                                    </select> --}}
-                                    <select class="form-select" id="laboratorio" name="laboratorio" style="width: 100%;" data-placeholder="Choose one..">
+                                    <select class="form-control select-dinamico-selectize" id="laboratorio" name="laboratorio" style="width: 100%;">
                                         <option></option><!-- Required for data-placeholder attribute to work with Select2 plugin -->
                                         @foreach ($laboratorios as $lab)
                                             <option {{ old('laboratorio') == $lab->id ? 'selected' : '' }} value="{{$lab->id}}">{{$lab->nombre}}</option>
@@ -79,10 +73,8 @@
                                     @enderror
                                 </div>
                                 <div class="mb-4 col-md-6 col-lg-4">
-                                    <!-- Select2 (.js-select2 class is initialized in Helpers.jqSelect2()) -->
-                                    <!-- For more info and examples you can check out https://github.com/select2/select2 -->
                                     <label class="form-label" for="linea_farmaceutica">Linea Farmaceútica <span class="text-danger">*</span></label>
-                                    <select class="js-select2 form-select" id="linea_farmaceutica" name="linea_farmaceutica" style="width: 100%;" data-placeholder="Choose one.." value="{{old('linea_farmaceutica')}}">
+                                    <select class="form-control select-dinamico-selectize" id="linea_farmaceutica" name="linea_farmaceutica" style="width: 100%;" value="{{old('linea_farmaceutica')}}">
                                         <option></option><!-- Required for data-placeholder attribute to work with Select2 plugin -->
                                         @foreach ($lineasFarmaceuticas as $linea)
                                             <option {{ old('linea_farmaceutica') == $linea->id ? 'selected' : '' }} value="{{$linea->id}}">{{$linea->nombre}}</option>
@@ -99,21 +91,21 @@
                                 </div> --}}
                                 <div class="mb-4 col-md-6 col-lg-4">
                                     <label class="form-label" for="nombre">Nombre <span class="text-danger">*</span></label>
-                                    <input type="text" class="form-control" id="nombre" name="nombre" value="{{old('nombre')}}">
+                                    <input type="text" class="form-control" id="nombre" name="nombre" value="{{old('nombre')}}" autocomplete="off">
                                     @error('nombre')
                                         <span class="text-danger">{{$message}}</span>
                                     @enderror
                                 </div>
                                 <div class="mb-4 col-md-6 col-lg-4">
                                     <label class="form-label" for="caracteristica">Caracteristicas <span class="text-danger">*</span></label>
-                                    <input type="text" class="form-control" id="caracteristica" name="caracteristica" value="{{old('caracteristica')}}">
+                                    <input type="text" class="form-control" id="caracteristica" name="caracteristica" value="{{old('caracteristica')}}" autocomplete="off">
                                     @error('caracteristica')
                                         <span class="text-danger">{{$message}}</span>
                                     @enderror
                                 </div>
                                 <div class="mb-4 col-md-6 col-lg-4">
                                     <label class="form-label" for="registro_sanitario">Registro Sanitario</label>
-                                    <input type="text" class="form-control" id="registro_sanitario" name="registro_sanitario" value="{{old('registro_sanitario')}}">
+                                    <input type="text" class="form-control" id="registro_sanitario" name="registro_sanitario" value="{{old('registro_sanitario')}}" autocomplete="off">
                                 </div>
                                 {{-- <div class="mb-4 col-md-6 col-lg-4">
                                     <label class="form-label" for="condicion-almacenamiento">Condicion de almacenamiento <span class="text-danger">*</span></label>
@@ -167,13 +159,14 @@
     <!-- END Page Content -->
 @endsection
 @section('js')
+    @vite('resources/js/app.js')
     <script src="{{ asset('js/lib/jquery.min.js') }}"></script>
     <script src="{{ asset('js/plugins/select2/js/select2.full.min.js') }}"></script>
     <script src="{{ asset('js/plugins/dropzone/min/dropzone.min.js') }}"></script>
-    <script src="{{ asset('js/plugins/dropzone/min/dropzone.min.js') }}"></script>
+    <script src="{{ asset('js/plugins/selectize/js/selectize.min.js') }}"></script>
     <script type="module">Dashmix.helpersOnLoad(['jq-select2']);</script>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', () => {
             const submitButton = document.querySelector('.submit-button');
             submitButton.addEventListener('click', function(event) {
                 this.disabled = true; // Deshabilitar el botón
@@ -184,10 +177,14 @@
                 }
             });
 
-            $('#laboratorio').selectize({
-                placeholder: 'Choose one..',
-                allowEmptyOption: true
-            });
+            //Ini8cializando selectize
+            const laboratorioSelect = document.getElementsByClassName('select-dinamico-selectize')
+            if (laboratorioSelect) {
+                $(laboratorioSelect).selectize({
+                    placeholder: 'Escoge uno..',
+                    allowEmptyOption: true,
+                });
+            }
         });
     </script>
 @endsection
