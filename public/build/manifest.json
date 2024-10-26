@@ -1,6 +1,14 @@
 {
+  "_axios-CCb-kr4I.js": {
+    "file": "assets/axios-CCb-kr4I.js",
+    "name": "axios"
+  },
+  "_index-dOz5OGOC.js": {
+    "file": "assets/index-dOz5OGOC.js",
+    "name": "index"
+  },
   "resources/css/app.css": {
-    "file": "assets/app-C5Bbo9pw.css",
+    "file": "assets/app-pct_2_Td.css",
     "src": "resources/css/app.css",
     "isEntry": true
   },
@@ -77,10 +85,23 @@
     "src": "resources/fonts/simple-line-icons/Simple-Line-Icons.woff2"
   },
   "resources/js/app.js": {
-    "file": "assets/app-BEBTcpHN.js",
+    "file": "assets/app-DB01SDgD.js",
     "name": "app",
     "src": "resources/js/app.js",
-    "isEntry": true
+    "isEntry": true,
+    "imports": [
+      "_axios-CCb-kr4I.js",
+      "_index-dOz5OGOC.js"
+    ]
+  },
+  "resources/js/bootstrap.js": {
+    "file": "assets/bootstrap-Qv8jo91D.js",
+    "name": "bootstrap",
+    "src": "resources/js/bootstrap.js",
+    "isEntry": true,
+    "imports": [
+      "_axios-CCb-kr4I.js"
+    ]
   },
   "resources/js/dashmix/app.js": {
     "file": "assets/app-DyMPvllh.js",
@@ -107,13 +128,22 @@
     "isEntry": true
   },
   "resources/js/pages/datatables.js": {
-    "file": "assets/datatables-B06F4bu2.js",
+    "file": "assets/datatables-ISU4_WRr.js",
     "name": "datatables",
     "src": "resources/js/pages/datatables.js",
     "isEntry": true
   },
+  "resources/js/pages/lottie-lordicon.js": {
+    "file": "assets/lottie-lordicon-BJUFveuI.js",
+    "name": "lottie-lordicon",
+    "src": "resources/js/pages/lottie-lordicon.js",
+    "isEntry": true,
+    "imports": [
+      "_index-dOz5OGOC.js"
+    ]
+  },
   "resources/js/pages/sweetAlert2.js": {
-    "file": "assets/sweetAlert2-rYOfb4Bp.js",
+    "file": "assets/sweetAlert2-CrRo2dWq.js",
     "name": "sweetAlert2",
     "src": "resources/js/pages/sweetAlert2.js",
     "isEntry": true

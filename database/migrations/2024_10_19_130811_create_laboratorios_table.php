@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('laboratorios', function (Blueprint $table) {
             $table->id();
-            $table->string('codigo');
+            $table->integer('codigo')->unique();
             $table->string('nombre');
             $table->decimal('margen_minimo',8,2);
             $table->timestamps();

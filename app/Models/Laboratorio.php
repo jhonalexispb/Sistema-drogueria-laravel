@@ -12,11 +12,16 @@ class Laboratorio extends Model implements AuditableContract
 {
     use HasFactory, SoftDeletes, Auditable;
 
-    protected $fillable = ['nombre','margen_minimo'];
+    protected $fillable = ['nombre','margen_minimo','codigo'];
     protected $table = 'laboratorios';
 
     public function productos()
     {
         return $this->hasMany(Producto::class);
+    }
+
+    public static function obtenerSiguienteCodigo()
+    {
+        return (self::max('codigo') ?? 99) + 1; // Si no hay registros, empieza desde 100
     }
 }

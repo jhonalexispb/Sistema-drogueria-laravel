@@ -12,10 +12,10 @@
         <!-- Quick Overview -->
         <div class="row items-push">
             <div class="mb-0 col-md-6 col-xl-4">
-                <a class="block block-rounded block-link-pop bg-xsmooth" href="javascript:void(0)">
+                <a class="block block-rounded block-link-pop bg-gd-primary" href="javascript:void(0)">
                     <div class="block-content block-content-full d-flex align-items-center justify-content-between">
                         <div class="item">
-                            <i class="fa fa-2x fa-tv text-xsmooth-lighter"></i>
+                            <i class="text-white-75 fa fa-3x fa-tv"></i>
                         </div>
                         <div class="ms-3 text-end">
                             <p class="mb-0 text-white fs-lg fw-semibold">
@@ -32,14 +32,14 @@
                 <a class="block block-rounded block-link-pop bg-xsmooth" href="javascript:void(0)">
                     <div class="block-content block-content-full d-flex align-items-center justify-content-between">
                         <div class="item">
-                            <i class="fa fa-2x fa-tv text-xsmooth-lighter"></i>
+                            <i class="fa fa-3x fa-solid fa-medal text-xsmooth-lighter"></i>
                         </div>
                         <div class="ms-3 text-end">
                             <p class="mb-0 text-white fs-lg fw-semibold">
-                                {{ $totalLineasFarmaceuticas }}
+                                {{ $totalLineasFarmaceuticas }} Productos
                             </p>
                             <p class="mb-0 text-white-75">
-                                Lineas farmaceuticas en total
+                                Pertenecen a la linea dolor
                             </p>
                         </div>
                     </div>
@@ -59,7 +59,7 @@
                             autocomplete="off">
                         <button type="submit" class="btn btn-primary submit-button">Buscar</button>
                         <a href="{{ route('laboratorios.create') }}" class="pl-2 text-white btn bg-gd-sea-op"><i
-                                class="si si-plus"></i> Crear Producto</a>
+                                class="si si-plus"></i> Crear linea</a>
                     </div>
                 </form>
                 <!-- END Search Form -->

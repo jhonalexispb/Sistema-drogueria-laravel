@@ -110,14 +110,14 @@ class pageDialogs {
       });
     } */
 
-    let swalConfirms = document.querySelectorAll('.js-swal-confirm');
+    /* let swalConfirms = document.querySelectorAll('.js-swal-confirm');
 
     if(swalConfirms){
       swalConfirms.forEach(swalConfirm => {
-        swalConfirm.addEventListener('submit', function(e) {
+        const button = swalConfirm.querySelector('button[type="submit"]');
+        button.addEventListener('click', function(e) {
           e.preventDefault(); // Prevengo la acción por defecto del formulario
-          const elementName = e.target.dataset.elementName; // Asumiendo que el nombre del producto está en un atributo data
-          const elementItem = e.target.dataset.elementItem;
+          const elementItem = swalConfirm.dataset.elementItem;
           toast.fire({
             title: `¿Estás seguro de eliminar el registro ${elementItem}?`,
             text: `Esta operación es irreversible`,
@@ -132,14 +132,39 @@ class pageDialogs {
             html: false
           }).then(result => {
             if (result.value) {
-              this.submit();
+              swalConfirm.submit();
             } else if (result.dismiss === 'cancel') {
               toast.fire('Cancelado', 'No se realizaron cambios', 'error');
             }
           });
         });
       });
-    }
+    } */
+
+    $(document).on('click', '.js-swal-confirm-modal button[type="submit"]', function(e) {
+      e.preventDefault(); // Prevengo la acción por defecto del formulario
+      const swalConfirm = $(this).closest('.js-swal-confirm-modal');
+      const elementItem = swalConfirm.data('element-item');
+
+        toast.fire({
+            title: `¿Estás seguro de eliminar el registro ${elementItem}?`,
+            text: `Esta operación es irreversible`,
+            icon: 'warning',
+            showCancelButton: true,
+            customClass: {
+                confirmButton: 'btn btn-danger m-1',
+                cancelButton: 'btn btn-secondary m-1'
+            },
+            confirmButtonText: 'Si, borremos esto',
+            cancelButtonText: 'Cancelar',
+        }).then(result => {
+            if (result.value) {
+                swalConfirm.submit();
+            } else if (result.dismiss === 'cancel') {
+                toast.fire('Cancelado', 'No se realizaron cambios', 'error');
+            }
+        });
+    });
 
     // Init an example confirm alert on button click
     let swalCustom = document.querySelector('.js-swal-custom-position');

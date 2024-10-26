@@ -6,7 +6,6 @@ export default defineConfig({
         laravel({
             input: [
                 'resources/css/app.css',
-                'resources/js/app.js',
                 'resources/sass/main.scss',
                 'resources/sass/dashmix/themes/xeco.scss',
                 'resources/sass/dashmix/themes/xinspire.scss',
@@ -23,6 +22,8 @@ export default defineConfig({
                 'resources/js/pages/chartBarras.js',
                 'resources/js/pages/chartOverview.js',
                 'resources/js/pages/sweetAlert2.js',
+                'resources/js/pages/lottie-lordicon.js',
+                'resources/js/bootstrap.js',
                 'resources/js/dashmix/modules/helpers.js',
             ],
             refresh: true,

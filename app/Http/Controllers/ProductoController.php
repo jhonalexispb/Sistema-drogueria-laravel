@@ -54,7 +54,7 @@ class ProductoController extends Controller
             'sale-boleta' =>'required', */
             'laboratorio' =>'required|exists:laboratorios,id',
             'linea_farmaceutica' =>'required|exists:lineas_farmaceuticas,id',
-            'nombre' =>'required|max:255',
+            'nombre' =>'required|max:255|unique:productos',
             'caracteristica' =>'required|max:255',
             /* 'condicion-almacenamiento' =>'required', */
         ]);

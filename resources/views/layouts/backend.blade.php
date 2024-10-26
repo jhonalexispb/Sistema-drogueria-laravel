@@ -33,6 +33,7 @@
   <!-- Load and set dark mode preference (blocking script to prevent flashing) -->
   <script src="{{ asset('js/setTheme.js') }}"></script>
   @yield('js')
+  @stack('js')
 </head>
 
 <body>

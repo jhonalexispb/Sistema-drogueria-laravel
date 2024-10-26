@@ -17,9 +17,12 @@
         "vite": "^5.0"
     },
     "dependencies": {
+        "@lordicon/element": "^1.10.0",
         "@popperjs/core": "^2.11.8",
         "@selectize/selectize": "^0.15.2",
         "bootstrap": "5.3.3",
-        "simplebar": "^6.2.5"
+        "lottie-web": "^5.12.2",
+        "simplebar": "^6.2.5",
+        "sweetalert2": "^11.14.4"
     }
 }

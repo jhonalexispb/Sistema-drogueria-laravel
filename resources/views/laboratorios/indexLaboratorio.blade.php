@@ -1,138 +1,122 @@
 @extends('layouts.backend')
 @section('css')
-  <!-- Page JS Plugins CSS -->
-  <link rel="stylesheet" href="{{ asset('js/plugins/datatables-bs5/css/dataTables.bootstrap5.min.css') }}">
-  <link rel="stylesheet" href="{{ asset('js/plugins/datatables-buttons-bs5/css/buttons.bootstrap5.min.css') }}">
-  <link rel="stylesheet" href="{{ asset('js/plugins/datatables-responsive-bs5/css/responsive.bootstrap5.min.css') }}">
-  <link rel="stylesheet" href="{{ asset('js/plugins/sweetalert2/sweetalert2.min.css') }}">
+    <!-- Page JS Plugins CSS -->
+    <link rel="stylesheet" href="{{ asset('js/plugins/datatables-bs5/css/dataTables.bootstrap5.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('js/plugins/datatables-buttons-bs5/css/buttons.bootstrap5.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('js/plugins/datatables-responsive-bs5/css/responsive.bootstrap5.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('js/plugins/sweetalert2/sweetalert2.min.css') }}">
 @endsection
 @section('content')
-
-    <x-navegacion-horizontal/>
-        <div class="content">
-            <!-- Quick Overview -->
-            <div class="row items-push">
-                <div class="col-lg-4">
-                    <a class="block mb-0 text-center block-rounded block-link-shadow h-100"
-                        href="{{route('laboratorios.create')}}">
-                        <div class="py-5 block-content">
-                            <div class="mb-1 fs-3 fw-semibold text-success">
-                                <i class="fa fa-plus"></i>
-                            </div>
-                            <p class="mb-0 fw-semibold fs-sm text-success text-uppercase">
-                                Crear laboratorio
-                            </p>
+    <x-navegacion-horizontal />
+    {{-- <div id="session-timer"></div> --}}
+    <div class="content">
+        <!-- Quick Overview -->
+        <div class="row items-push">
+            <div class="mb-0 col-md-6 col-xl-4">
+                <a class="block block-rounded block-link-pop bg-gd-primary" href="javascript:void(0)">
+                    <div class="block-content block-content-full d-flex align-items-center justify-content-between">
+                        <div class="item">
+                            <i class="fa fa-3x fa-solid fa-medal text-white-75"></i>
                         </div>
-                    </a>
-                </div>
-                <div class="col-6 col-lg-4">
-                    <a class="block mb-0 text-center block-rounded block-link-shadow h-100" href="javascript:void(0)">
-                        <div class="py-5 block-content">
-                            <div class="mb-1 fs-3 fw-semibold text-danger">Otarvasq</div>
-                            <p class="mb-0 fw-semibold fs-sm text-danger text-uppercase">
+                        <div class="ms-3 text-end">
+                            <p class="mb-0 text-white fs-lg fw-semibold">
+                                Otarvasq
+                            </p>
+                            <p class="mb-0 text-white-75">
                                 es el laboratorio más vendido
                             </p>
                         </div>
-                    </a>
-                </div>
-                <div class="col-6 col-lg-4">
-                    <a class="block mb-0 text-center block-rounded block-link-shadow h-100" href="javascript:void(0)">
-                        <div class="py-5 block-content">
-                            <div class="mb-1 fs-3 fw-semibold text-dark">{{$totalLaboratorios}}</div>
-                            <p class="mb-0 fw-semibold fs-sm text-muted text-uppercase">
+                    </div>
+                </a>
+            </div>
+            <div class="mb-0 col-md-6 col-xl-4">
+                <a class="block block-rounded block-link-pop bg-xsmooth" href="javascript:void(0)">
+                    <div class="block-content block-content-full d-flex align-items-center justify-content-between">
+                        <div class="item">
+                            <i class="text-white-75 fa fa-3x fa-tv"></i>
+                        </div>
+                        <div class="ms-3 text-end">
+                            <p class="mb-0 text-white fs-lg fw-semibold">
+                                {{ $totalLaboratorios }}
+                            </p>
+                            <p class="mb-0 text-white-75">
                                 Laboratorios en total
                             </p>
                         </div>
-                    </a>
-                </div>
+                    </div>
+                </a>
             </div>
-            <!-- END Quick Overview -->
-    
-            <!-- All Products -->
-            <div class="block block-rounded">
-                <div class="block-content bg-body-dark">
-                    <!-- Search Form -->
-                    <form action="{{route('laboratorios.index')}}" method="GET" {{-- onsubmit="return false;" --}}>
+        </div>
+        <!-- END Quick Overview -->
+
+        <!-- All Products -->
+        <div class="block block-rounded">
+            <div class="block-content bg-body-dark">
+                <form action="{{ route('laboratorios.index') }}" method="GET">
                     <div class="mb-4 input-group">
                         <input type="text" class="form-control form-control-alt" id="dm-ecom-products-search"
-                            name="busqueda" placeholder="Search all products.." value="{{request('busqueda')}}" autocomplete="off">
+                            name="busqueda" placeholder="Search all products.." value="{{ request('busqueda') }}"
+                            autocomplete="off">
                         <button type="submit" class="btn btn-primary submit-button">Buscar</button>
                     </div>
-                    </form>
-                    <!-- END Search Form -->
-                </div>
-                
-                <!-- All Products Table -->
-                <div class="overflow-x-auto block-content">
-                <table class="table table-bordered table-striped table-vcenter js-dataTable-responsive ">
+                </form>
+            </div>
+
+            <!-- All Products Table -->
+            <div class="overflow-x-auto block-content">
+                <x-laboratorio.formulario-creacion-laboratorio />
+                <table class="table mb-2 table-bordered table-striped table-vcenter js-dataTable-responsive">
                     <thead>
                         <tr>
-                            <th class="text-center" >Codigo</th>
-                            <th class="text-center" >Nombre</th>
-                            <th class="text-center" >Margen Minimo</th>
-                            <th class="text-center" >Opciones</th>
+                            <th class="text-center">Codigo</th>
+                            <th class="text-center">Nombre</th>
+                            <th class="text-center">Margen Minimo</th>
+                            <th class="text-center">Opciones</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($laboratorios as $p)
-                        <tr>
-                            <td class="text-center fs-sm">{{$p->codigo}}</td>
-                            <td class="text-center fs-sm">{{$p->nombre}}</td>
-                            <td class="text-center fs-sm">% {{$p->margen_minimo}}</td>
-                            <td class="text-center fs-sm">
-                                <div class="btn-group" role="group" aria-label="Horizontal Primary">
-                                    <a class="btn btn-alt-secondary push mb-md-0" href="{{route('productos.show',$p->id)}}">
-                                        <i class="fa fa-fw fa-eye"></i>
-                                    </a>
-                                    <a class="btn btn-alt-secondary push mb-md-0" href="{{route('productos.edit',$p->id)}}">
-                                        <i class="fa fa-fw fa-pen-to-square"></i>
-                                    </a>
-                                    <form action="{{route('productos.destroy',$p->id)}}" class="js-swal-confirm" data-element-item="{{ $p->nombre .' '.$p->caracteristica}}" data-product-id="{{ $p->id }}" method="POST">
-                                        @method('DELETE')
-                                        @csrf
-                                        <button type="submit" class="btn btn-alt-secondary push mb-md-0">
-                                            <i class="far fa-trash-can"></i>
-                                        </button>
-                                    </form>
-                                </div>
-                            </td>
-                        </tr>
+                            <tr>
+                                <td class="text-center fs-sm">{{ $p->codigo }}</td>
+                                <td class="text-center fs-sm">{{ $p->nombre }}</td>
+                                <td class="text-center fs-sm">% {{ $p->margen_minimo }}</td>
+                                <td class="text-center fs-sm">
+                                    <div class="btn-group" role="group" aria-label="Horizontal Primary">
+                                        <a class="btn btn-alt-secondary push mb-md-0"
+                                            href="{{ route('productos.show', $p->id) }}">
+                                            <i class="fa fa-fw fa-eye"></i>
+                                        </a>
+                                        <a class="btn btn-alt-secondary push mb-md-0"
+                                            href="{{ route('productos.edit', $p->id) }}">
+                                            <i class="fa fa-fw fa-pen-to-square"></i>
+                                        </a>
+                                        <form action="{{ route('productos.destroy', $p->id) }}" class="js-swal-confirm-modal"
+                                            data-element-item="{{ $p->nombre . ' ' . $p->caracteristica }}"
+                                            data-product-id="{{ $p->id }}" method="POST">
+                                            @method('DELETE')
+                                            @csrf
+                                            <button type="submit" class="btn btn-alt-secondary push mb-md-0">
+                                                <i class="far fa-trash-can"></i>
+                                            </button>
+                                        </form>
+                                    </div>
+                                </td>
+                            </tr>
                         @endforeach
                     </tbody>
                 </table>
                 {{ $laboratorios->links() }}
-                </div>
             </div>
         </div>
+    </div>
 @endsection
 @section('js')
     <script src="{{ asset('js/lib/jquery.min.js') }}"></script>
-    @vite(['resources/js/pages/datatables.js','resources/js/pages/sweetAlert2.js'])
-
+    @vite(['resources/js/pages/datatables.js', 'resources/js/pages/sweetAlert2.js'])
     <script src="{{ asset('js/plugins/datatables/dataTables.min.js') }}"></script>
-    <script src="{{ asset('js/plugins/datatables-bs5/js/dataTables.bootstrap5.min.js') }}"></script>
     <script src="{{ asset('js/plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
-    <script src="{{ asset('js/plugins/datatables-responsive-bs5/js/responsive.bootstrap5.min.js') }}"></script>
     <script src="{{ asset('js/plugins/datatables-buttons/dataTables.buttons.min.js') }}"></script>
-    <script src="{{ asset('js/plugins/datatables-buttons-bs5/js/buttons.bootstrap5.min.js') }}"></script>
-    <script src="{{ asset('js/plugins/datatables-buttons-jszip/jszip.min.js') }}"></script>
-    <script src="{{ asset('js/plugins/datatables-buttons-pdfmake/pdfmake.min.js') }}"></script>
-    <script src="{{ asset('js/plugins/datatables-buttons-pdfmake/vfs_fonts.js') }}"></script>
-    <script src="{{ asset('js/plugins/datatables-buttons/buttons.print.min.js') }}"></script>
-    <script src="{{ asset('js/plugins/datatables-buttons/buttons.html5.min.js') }}"></script>
-
     <script src="{{ asset('js/plugins/sweetalert2/sweetalert2.min.js') }}"></script>
-    @if (session('success'))
-        <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                Swal.fire({
-                title: "¡Buen trabajo!",
-                text: "{{ session('success') }}",
-                icon: "success"
-                });
-            });
-        </script>
-    @endif
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -145,6 +129,21 @@
                     form.submit(); // Envía el formulario
                 }
             });
-        });
+
+            /* const sessionLifetime = {{ config('session.lifetime') }} * 60 * 1000;
+            const sessionExpireTime = Date.now() + sessionLifetime;
+
+            function updateSessionTimer() {
+                const now = Date.now();
+                const timeRemaining = sessionExpireTime - now;
+
+                const minutes = Math.floor((timeRemaining / 1000 / 60) % 60);
+                const seconds = Math.floor((timeRemaining / 1000) % 60);
+                document.getElementById('session-timer').textContent = `Tiempo restante: ${minutes}m ${seconds}s`;
+            }
+
+            const timerInterval = setInterval(updateSessionTimer, 1000);
+            updateSessionTimer(); */
+            });
     </script>
 @endsection
