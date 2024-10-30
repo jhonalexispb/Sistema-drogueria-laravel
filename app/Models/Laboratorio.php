@@ -22,6 +22,6 @@ class Laboratorio extends Model implements AuditableContract
 
     public static function obtenerSiguienteCodigo()
     {
-        return (self::max('codigo') ?? 99) + 1; // Si no hay registros, empieza desde 100
+        return (self::withTrashed()->max('codigo') ?? 99) + 1; // Si no hay registros, empieza desde 100
     }
 }

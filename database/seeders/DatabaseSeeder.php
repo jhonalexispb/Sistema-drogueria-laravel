@@ -33,7 +33,7 @@ class DatabaseSeeder extends Seeder
         );
 
         Producto::factory(50)->create();
-        Laboratorio::factory(10000)->create();
-        LineaFarmaceutica::factory(10000)->create();
+        Laboratorio::factory(10)->create();
+        LineaFarmaceutica::factory(5)->create();
     }
 }

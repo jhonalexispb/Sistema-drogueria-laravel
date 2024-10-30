@@ -8,9 +8,7 @@
 @endsection
 @section('content')
     <x-navegacion-horizontal />
-    {{-- <div id="session-timer"></div> --}}
     <div class="content">
-        <!-- Quick Overview -->
         <div class="row items-push">
             <div class="mb-0 col-md-6 col-xl-4">
                 <a class="block block-rounded block-link-pop bg-gd-primary" href="javascript:void(0)">
@@ -47,22 +45,17 @@
                 </a>
             </div>
         </div>
-        <!-- END Quick Overview -->
 
-        <!-- All Products -->
         <div class="block block-rounded">
             <div class="block-content bg-body-dark">
                 <form action="{{ route('laboratorios.index') }}" method="GET">
                     <div class="mb-4 input-group">
-                        <input type="text" class="form-control form-control-alt" id="dm-ecom-products-search"
-                            name="busqueda" placeholder="Search all products.." value="{{ request('busqueda') }}"
-                            autocomplete="off">
+                        <input type="text" class="form-control form-control-alt" name="busqueda" placeholder="Busca algun laboratorio.." value="{{ request('busqueda') }}" autocomplete="off">
                         <button type="submit" class="btn btn-primary submit-button">Buscar</button>
                     </div>
                 </form>
             </div>
 
-            <!-- All Products Table -->
             <div class="overflow-x-auto block-content">
                 <x-laboratorio.formulario-creacion-laboratorio />
                 <table class="table mb-2 table-bordered table-striped table-vcenter js-dataTable-responsive">
@@ -75,24 +68,15 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($laboratorios as $p)
+                        @foreach ($laboratorios as $v)
                             <tr>
-                                <td class="text-center fs-sm">{{ $p->codigo }}</td>
-                                <td class="text-center fs-sm">{{ $p->nombre }}</td>
-                                <td class="text-center fs-sm">% {{ $p->margen_minimo }}</td>
+                                <td class="text-center fs-sm">{{ $v->codigo }}</td>
+                                <td class="text-center fs-sm">{{ $v->nombre }}</td>
+                                <td class="text-center fs-sm">% {{ $v->margen_minimo }}</td>
                                 <td class="text-center fs-sm">
                                     <div class="btn-group" role="group" aria-label="Horizontal Primary">
-                                        <a class="btn btn-alt-secondary push mb-md-0"
-                                            href="{{ route('productos.show', $p->id) }}">
-                                            <i class="fa fa-fw fa-eye"></i>
-                                        </a>
-                                        <a class="btn btn-alt-secondary push mb-md-0"
-                                            href="{{ route('productos.edit', $p->id) }}">
-                                            <i class="fa fa-fw fa-pen-to-square"></i>
-                                        </a>
-                                        <form action="{{ route('productos.destroy', $p->id) }}" class="js-swal-confirm-modal"
-                                            data-element-item="{{ $p->nombre . ' ' . $p->caracteristica }}"
-                                            data-product-id="{{ $p->id }}" method="POST">
+                                        <x-laboratorio.boton-edicion-laboratorio :idLaboratorio="$v->id" />
+                                        <form action="{{ route('laboratorios.destroy', $v->id) }}" class="js-swal-confirm-modal" data-element-item="{{ $v->nombre }}" method="POST">
                                             @method('DELETE')
                                             @csrf
                                             <button type="submit" class="btn btn-alt-secondary push mb-md-0">
@@ -109,6 +93,7 @@
             </div>
         </div>
     </div>
+    <x-laboratorio.formulario-edicion-laboratorio/>
 @endsection
 @section('js')
     <script src="{{ asset('js/lib/jquery.min.js') }}"></script>
@@ -129,21 +114,18 @@
                     form.submit(); // Envía el formulario
                 }
             });
-
-            /* const sessionLifetime = {{ config('session.lifetime') }} * 60 * 1000;
-            const sessionExpireTime = Date.now() + sessionLifetime;
-
-            function updateSessionTimer() {
-                const now = Date.now();
-                const timeRemaining = sessionExpireTime - now;
-
-                const minutes = Math.floor((timeRemaining / 1000 / 60) % 60);
-                const seconds = Math.floor((timeRemaining / 1000) % 60);
-                document.getElementById('session-timer').textContent = `Tiempo restante: ${minutes}m ${seconds}s`;
-            }
-
-            const timerInterval = setInterval(updateSessionTimer, 1000);
-            updateSessionTimer(); */
-            });
+        });
     </script>
+    @if(@session('info'))
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                Swal.fire({
+                    title: "¡Bien hecho {{ Auth::user()->name }}!",
+                    html: `<lord-icon src='media/gif/borrado exitoso.json' trigger='loop' style='width: 200px; height: 200px;'></lord-icon> <br> {{ session('info')}}`,
+                    showCloseButton: true,
+                    backdrop: true,
+                });
+            });
+        </script>
+    @endif
 @endsection

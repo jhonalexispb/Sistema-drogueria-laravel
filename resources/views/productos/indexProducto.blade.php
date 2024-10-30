@@ -96,7 +96,7 @@
                                     <i class="fa fa-fw fa-pen-to-square"></i>
                                 </a>
 
-                                <form action="{{route('productos.destroy',$p->id)}}" class="js-swal-confirm" data-element-item="{{ $p->nombre .' '.$p->caracteristica}}" data-product-id="{{ $p->id }}" method="POST">
+                                <form action="{{route('productos.destroy',$p->id)}}" class="js-swal-confirm" data-element-item="{{ $p->nombre .' '.$p->caracteristica}}" method="POST">
                                     @method('DELETE')
                                     @csrf
                                     <button type="submit" class="btn btn-alt-secondary push mb-md-0">

@@ -1,11 +1,13 @@
 // public/js/axiosHelper.js
 /* import Swal from 'sweetalert2'; */
 
+const tiempoEstandar = { timeout: 15000 };
+
 const handleResponse = (response) => {
     return response.data;
 };
 
-const handleError = (error) => {
+const handleError = (error,nombre,formulario) => {
     let errorMessage = "¡Ups! Algo salió mal. Por favor, inténtalo de nuevo.";
     let errorIcon = "<lord-icon src='{{asset('media/gif/error de conexion.json') }}' trigger='loop' style='width: 200px; height: 200px;'></lord-icon>";
 
@@ -14,6 +16,25 @@ const handleError = (error) => {
             case 400:
                 errorMessage = `Error ${error.response.status}: Parece que hubo un error en la solicitud.`;
                 errorIcon = "<lord-icon src='media/gif/error 400.json' trigger='loop' style='width: 200px; height: 200px;'></lord-icon>";
+                break;
+            case 404:
+                errorMessage = `Error ${error.response.status}: ¡Vaya! No encontramos lo que buscabas.`;
+                errorIcon = "<lord-icon src='media/gif/error 404.json' trigger='loop' style='width: 300px; height: 300px;'></lord-icon>";
+                break;
+            case 422: // Errores de validación
+                clearErrors();
+                const form = document.getElementById(formulario);
+                const errors = error.response.data.errors;
+                for (const field in errors) {
+                    const errorMessage = errors[field][0];
+                    const input = form.querySelector(`[name="${field}"]`);
+                    const errorDiv = document.createElement('span');
+                    errorDiv.className = 'error text-danger';
+                    errorDiv.textContent = errorMessage;
+                    input.parentNode.insertBefore(errorDiv, input.nextSibling);
+                }
+                errorMessage = `${nombre}, encontramos errores en tu formulario, verifica los datos por favor :)`;
+                errorIcon = "<lord-icon src='media/gif/formulario invalido.json' trigger='loop' style='width: 200px; height: 200px;'></lord-icon>";
                 break;
             case 401:
             case 419:
@@ -42,4 +63,11 @@ const handleError = (error) => {
     });
 };
 
-export { handleResponse, handleError };
+function clearErrors() {
+    const errorMessages = document.querySelectorAll('span.error');
+    errorMessages.forEach((msg) => {
+        msg.remove();
+    });
+}
+
+export { handleResponse, handleError, tiempoEstandar, clearErrors};

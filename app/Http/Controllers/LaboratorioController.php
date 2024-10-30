@@ -7,9 +7,6 @@ use Illuminate\Http\Request;
 
 class LaboratorioController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {   
         $totalLaboratorios = Laboratorio::count();
@@ -28,17 +25,6 @@ class LaboratorioController extends Controller
         return view('laboratorios.indexLaboratorio', compact('laboratorios','totalLaboratorios'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         $request->validate(
@@ -60,36 +46,37 @@ class LaboratorioController extends Controller
         return response()->json(['success' => 'El laboratorio ha sido creado exitosamente.']);
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(Laboratorio $laboratorio)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(Laboratorio $laboratorio)
     {
-        //
+        return response()->json($laboratorio);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, Laboratorio $laboratorio)
     {
-        //
-    }
+        $request->validate(
+            [
+                'nombre'=>'required|max:255|unique:laboratorios,nombre,'.$laboratorio->id,
+                'margen_minimo'=>'required|numeric',
+            ]
+        );
 
-    /**
-     * Remove the specified resource from storage.
-     */
+        $laboratorio->fill([
+            'nombre' => $request->nombre,
+            'margen_minimo' => $request->margen_minimo,
+        ]);
+
+        $laboratorio->save(); // Guardar los cambios
+        return response()->json(['success' => 'El laboratorio ha sido actualizado exitosamente.']);
+    }
     public function destroy(Laboratorio $laboratorio)
     {
-        //
+        $laboratorio->delete();
+        return redirect()->route('laboratorios.index')->with('info','Laboratorio eliminado de manera satisfactoria');
     }
 
     public function siguienteCodigo()

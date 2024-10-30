@@ -39,7 +39,11 @@ class LineaFarmaceuticaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nombre'=>'required|max:255|unique:lineas_farmaceuticas',
+        ]);
+        LineaFarmaceutica::create($request->all());
+        return response()->json(['success' => 'La línea farmacéutica ha sido creada exitosamente.']);
     }
 
     /**
@@ -71,6 +75,7 @@ class LineaFarmaceuticaController extends Controller
      */
     public function destroy(LineaFarmaceutica $lineaFarmaceutica)
     {
-        //
+        $lineaFarmaceutica->delete();
+        return redirect()->route('lineasFarmaceuticas.index')->with('info','Linea farmaceutica eliminada de manera satisfactoria');
     }
 }

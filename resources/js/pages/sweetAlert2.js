@@ -149,7 +149,7 @@ class pageDialogs {
         toast.fire({
             title: `¿Estás seguro de eliminar el registro ${elementItem}?`,
             text: `Esta operación es irreversible`,
-            icon: 'warning',
+            html: `<lord-icon src='media/gif/borrar pregunta.json' trigger='loop' style='width: 200px; height: 200px;'></lord-icon>`,
             showCancelButton: true,
             customClass: {
                 confirmButton: 'btn btn-danger m-1',
