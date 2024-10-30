@@ -6,7 +6,7 @@
             <!-- Class Toggle, functionality initialized in Helpers.dmToggleClass() -->
             <button type="button" class="btn w-100 btn-light d-flex justify-content-between align-items-center"
                 data-toggle="class-toggle" data-target="#horizontal-navigation-hover-normal" data-class="d-none">
-                Menu - Hover Normal
+                Presiona para ver más atributos
                 <i class="fa fa-bars"></i>
             </button>
         </div>
@@ -23,7 +23,7 @@
                 </li>
 
                 <li class="nav-main-item">
-                    <a class="nav-main-link{{ request()->routeIs('principios.index') ? ' active' : '' }}" href="#">
+                    <a class="nav-main-link{{ request()->routeIs('principiosActivos.index') ? ' active' : '' }}" href="{{route('principiosActivos.index')}}">
                         <i class="nav-main-link-icon fa fa-boxes"></i>
                         <span class="nav-main-link-name">Principios</span>
                     </a>
@@ -34,12 +34,12 @@
                         <span class="nav-main-link-name">Lineas Farmaceuticas</span>
                     </a>
                 </li>
-                <li class="nav-main-item">
+                {{-- <li class="nav-main-item">
                     <a class="nav-main-link{{ request()->routeIs('categorias.index') ? ' active' : '' }}" href="#">
                         <i class="nav-main-link-icon fa fa-globe"></i>
                         <span class="nav-main-link-name">Categorias</span>
                     </a>
-                </li>
+                </li> --}}
             </ul>
         </div>
         <!-- END Navigation -->

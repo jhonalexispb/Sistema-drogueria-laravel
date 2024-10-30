@@ -9,7 +9,7 @@ const handleResponse = (response) => {
 
 const handleError = (error,nombre,formulario) => {
     let errorMessage = "¡Ups! Algo salió mal. Por favor, inténtalo de nuevo.";
-    let errorIcon = "<lord-icon src='{{asset('media/gif/error de conexion.json') }}' trigger='loop' style='width: 200px; height: 200px;'></lord-icon>";
+    let errorIcon = "<lord-icon src='media/gif/error de conexion.json' trigger='loop' style='width: 200px; height: 200px;'></lord-icon>";
 
     if (error.response) {
         switch (error.response.status) {
@@ -22,7 +22,7 @@ const handleError = (error,nombre,formulario) => {
                 errorIcon = "<lord-icon src='media/gif/error 404.json' trigger='loop' style='width: 300px; height: 300px;'></lord-icon>";
                 break;
             case 422: // Errores de validación
-                clearErrors();
+                clearErrors(formulario);
                 const form = document.getElementById(formulario);
                 const errors = error.response.data.errors;
                 for (const field in errors) {
@@ -63,8 +63,9 @@ const handleError = (error,nombre,formulario) => {
     });
 };
 
-function clearErrors() {
-    const errorMessages = document.querySelectorAll('span.error');
+function clearErrors(formulario) {
+    const form = document.getElementById(formulario);
+    const errorMessages = form.querySelectorAll('span.error');
     errorMessages.forEach((msg) => {
         msg.remove();
     });

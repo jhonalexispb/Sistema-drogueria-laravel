@@ -160,9 +160,9 @@ class pageDialogs {
         }).then(result => {
             if (result.value) {
                 swalConfirm.submit();
-            } else if (result.dismiss === 'cancel') {
+            } /* else if (result.dismiss === 'cancel') {
                 toast.fire('Cancelado', 'No se realizaron cambios', 'error');
-            }
+            } */
         });
     });
 

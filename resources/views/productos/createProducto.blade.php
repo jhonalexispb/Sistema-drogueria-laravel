@@ -13,16 +13,6 @@
             <div class="block-header block-header-default">
                 <h3 class="block-title">Crear Producto</h3>
             </div>
-            {{-- @if ($errors->any())
-                <div>
-                    <h2>Errores:</h2>
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif --}}
             <div class="block-content">
                 <div class="row justify-content-center">
                     <div class="col-md-10 col-lg-12">
@@ -74,6 +64,7 @@
                                 </div>
                                 <div class="mb-4 col-md-6 col-lg-4">
                                     <label class="form-label" for="linea_farmaceutica">Linea Farmaceútica <span class="text-danger">*</span></label>
+                                    <x-linea-farmaceutica.formulario-creacion-linea-farmaceutica />
                                     <select class="form-control select-dinamico-selectize" id="linea_farmaceutica" name="linea_farmaceutica" style="width: 100%;" value="{{old('linea_farmaceutica')}}">
                                         <option></option><!-- Required for data-placeholder attribute to work with Select2 plugin -->
                                         @foreach ($lineasFarmaceuticas as $linea)

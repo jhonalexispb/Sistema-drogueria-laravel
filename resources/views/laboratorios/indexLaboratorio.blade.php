@@ -57,6 +57,7 @@
             </div>
 
             <div class="overflow-x-auto block-content">
+                <x-laboratorio.boton-crear-laboratorio />
                 <x-laboratorio.formulario-creacion-laboratorio />
                 <table class="table mb-2 table-bordered table-striped table-vcenter js-dataTable-responsive">
                     <thead>

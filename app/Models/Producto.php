@@ -29,4 +29,9 @@ class Producto extends Model implements AuditableContract
     {
         return $this->belongsToMany(CondicionAlmacenamiento::class, 'condicion_producto');
     }
+
+    public function principiosActivos()
+    {
+        return $this->belongsToMany(PrincipioActivo::class, 'productos_principios_activos');
+    }
 }

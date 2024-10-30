@@ -7,9 +7,6 @@ use Illuminate\Http\Request;
 
 class LineaFarmaceuticaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {   
         $totalLineasFarmaceuticas = LineaFarmaceutica::count();
@@ -26,17 +23,6 @@ class LineaFarmaceuticaController extends Controller
         return view('lineas-farmaceuticas.indexLineaFarmaceutica', compact('lineasFarmaceuticas','totalLineasFarmaceuticas'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         $request->validate([
@@ -46,35 +32,35 @@ class LineaFarmaceuticaController extends Controller
         return response()->json(['success' => 'La línea farmacéutica ha sido creada exitosamente.']);
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(LineaFarmaceutica $lineaFarmaceutica)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(LineaFarmaceutica $lineaFarmaceutica)
-    {
-        //
+    public function edit($id)
+    {   
+        $lineaFarmaceutica = LineaFarmaceutica::find($id);
+        return response()->json($lineaFarmaceutica);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, LineaFarmaceutica $lineaFarmaceutica)
-    {
-        //
+    public function update(Request $request, $id)
+    {   
+        $lineaFarmaceutica = LineaFarmaceutica::find($id);
+        $request->validate([
+            'nombre' => 'required|max:255|unique:lineas_farmaceuticas,nombre,'.$lineaFarmaceutica->id,
+        ]);
+        
+        $lineaFarmaceutica->fill([
+            'nombre' => $request->nombre
+        ]);
+
+        $lineaFarmaceutica->update();
+        return response()->json(['success' => 'La linea farmaceutica fue actualizada de manera satisfactoria']);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(LineaFarmaceutica $lineaFarmaceutica)
-    {
+    public function destroy($id)
+    {   
+        $lineaFarmaceutica = LineaFarmaceutica::find($id);
         $lineaFarmaceutica->delete();
         return redirect()->route('lineasFarmaceuticas.index')->with('info','Linea farmaceutica eliminada de manera satisfactoria');
     }

@@ -64,6 +64,7 @@
             </div>
             <!-- All Products Table -->
             <div class="overflow-x-auto block-content">
+                <x-linea-farmaceutica.boton-crear-linea-farmaceutica />
                 <x-linea-farmaceutica.formulario-creacion-linea-farmaceutica />
                 <table class="table mb-3 table-bordered table-striped table-vcenter js-dataTable-responsive ">
                     <thead>
@@ -80,14 +81,7 @@
                                 <td class="text-center fs-sm">{{ $p->nombre }}</td>
                                 <td class="text-center fs-sm">
                                     <div class="btn-group" role="group" aria-label="Horizontal Primary">
-                                        <a class="btn btn-alt-secondary push mb-md-0"
-                                            href="{{ route('productos.show', $p->id) }}">
-                                            <i class="fa fa-fw fa-eye"></i>
-                                        </a>
-                                        <a class="btn btn-alt-secondary push mb-md-0"
-                                            href="{{ route('productos.edit', $p->id) }}">
-                                            <i class="fa fa-fw fa-pen-to-square"></i>
-                                        </a>
+                                        <x-linea-farmaceutica.boton-edicion-linea-farmaceutica :idLineaFarmaceutica="$p->id"/>
 
                                         <form action="{{route('lineasFarmaceuticas.destroy',$p->id)}}" class="js-swal-confirm-modal" data-element-item="{{ $p->nombre }}" method="POST">
                                             @method('DELETE')
@@ -106,6 +100,7 @@
             </div>
         </div>
     </div>
+    <x-linea-farmaceutica.formulario-edicion-linea-farmaceutica/>
 @endsection
 @section('js')
     <script src="{{ asset('js/lib/jquery.min.js') }}"></script>
@@ -115,13 +110,14 @@
     <script src="{{ asset('js/plugins/datatables-buttons/dataTables.buttons.min.js') }}"></script>
     <script src="{{ asset('js/plugins/sweetalert2/sweetalert2.min.js') }}"></script>
 
-    @if (session('success'))
+    @if(@session('info'))
         <script>
             document.addEventListener('DOMContentLoaded', function() {
                 Swal.fire({
-                    title: "¡Buen trabajo!",
-                    text: "{{ session('success') }}",
-                    icon: "success"
+                    title: "¡Bien hecho {{ Auth::user()->name }}!",
+                    html: `<lord-icon src='media/gif/borrado exitoso.json' trigger='loop' style='width: 200px; height: 200px;'></lord-icon> <br> {{ session('info')}}`,
+                    showCloseButton: true,
+                    backdrop: true,
                 });
             });
         </script>

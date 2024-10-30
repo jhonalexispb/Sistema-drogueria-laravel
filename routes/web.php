@@ -25,3 +25,4 @@ require __DIR__.'/auth.php';
 require __DIR__ . '/productos.php';
 require __DIR__ . '/laboratorios.php';
 require __DIR__ . '/lineasFarmaceuticas.php';
+require __DIR__ . '/principioActivo.php';

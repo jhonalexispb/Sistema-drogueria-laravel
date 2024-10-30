@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Laboratorio;
 use App\Models\LineaFarmaceutica;
+use App\Models\PrincipioActivo;
 use App\Models\Producto;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -35,5 +36,6 @@ class DatabaseSeeder extends Seeder
         Producto::factory(50)->create();
         Laboratorio::factory(10)->create();
         LineaFarmaceutica::factory(5)->create();
+        PrincipioActivo::factory(20)->create();
     }
 }
