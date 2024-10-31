@@ -33,8 +33,6 @@
     </div>
 </div>
 @push('js')
-    
-    @vite(['resources/js/bootstrap.js','resources/js/pages/lottie-lordicon.js'])
     <script type="module">
         import { handleError, tiempoEstandar, clearErrors } from "{{ asset('js/axios/axiosHelper.js')}}";
         document.addEventListener('DOMContentLoaded', function() {

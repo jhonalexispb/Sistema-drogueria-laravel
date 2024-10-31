@@ -18,6 +18,7 @@ class PrincipioActivoFactory extends Factory
     {
         return [
             'nombre' => fake()->word(),
+            'concentracion' => fake()->numberBetween(100,1000)
         ];
     }
 }

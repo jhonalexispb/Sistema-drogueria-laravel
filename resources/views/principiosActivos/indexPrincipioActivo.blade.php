@@ -64,12 +64,13 @@
             </div>
             <!-- All Products Table -->
             <div class="overflow-x-auto block-content">
-                <x-principio-activo.formulario-creacion-principio-activo />
+                <x-principio-activo.boton-crear-principio-activo />
                 <table class="table mb-3 table-bordered table-striped table-vcenter js-dataTable-responsive ">
                     <thead>
                         <tr>
                             <th class="text-center" style="width: 100px;">Codigo</th>
                             <th class="text-center" style="width: 100px;">Nombre</th>
+                            <th class="text-center" style="width: 100px;">Concentracion</th>
                             <th class="text-center" style="width: 100px;">Opciones</th>
                         </tr>
                     </thead>
@@ -78,6 +79,7 @@
                             <tr>
                                 <td class="text-center fs-sm">{{ $p->id }}</td>
                                 <td class="text-center fs-sm">{{ $p->nombre }}</td>
+                                <td class="text-center fs-sm">{{ $p->concentracion }}</td>
                                 <td class="text-center fs-sm">
                                     <div class="btn-group" role="group" aria-label="Horizontal Primary">
                                         <x-principio-activo.boton-edicion-principio-activo :idPrincipioActivo="$p->id"/>
@@ -99,10 +101,11 @@
         </div>
     </div>
     <x-principio-activo.formulario-edicion-principio-activo/>
+    <x-principio-activo.formulario-creacion-principio-activo />
 @endsection
 @section('js')
     <script src="{{ asset('js/lib/jquery.min.js') }}"></script>
-    @vite(['resources/js/pages/datatables.js', 'resources/js/pages/sweetAlert2.js'])
+    @vite(['resources/js/pages/datatables.js', 'resources/js/pages/sweetAlert2.js', 'resources/js/bootstrap.js', 'resources/js/pages/lottie-lordicon.js'])
     <script src="{{ asset('js/plugins/datatables/dataTables.min.js') }}"></script>
     <script src="{{ asset('js/plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
     <script src="{{ asset('js/plugins/datatables-buttons/dataTables.buttons.min.js') }}"></script>

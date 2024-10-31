@@ -1,5 +1,4 @@
 <div>
-    <button type="button" class="mb-2 text-white btn bg-gd-sea-op" id="crear-principio-activo"><i class="si si-plus"></i> Crear principio activo</button>
     <!-- Pop Out Default Modal -->
     <div class="modal fade" id="modal-principio-activo" tabindex="-1" role="dialog" aria-labelledby="modal-principio-activo"
         aria-hidden="true">
@@ -16,6 +15,10 @@
                             <label class="form-label" for="nombre">Nombre <span class="text-danger">*</span></label>
                             <input type="text" class="form-control" id="nombre" name="nombre">
                         </div>
+                        <div class="mb-4">
+                            <label class="form-label" for="concentracion">Concentracion</label>
+                            <input type="text" class="form-control" id="concentracion" name="concentracion">
+                        </div>
                         <div class="justify-content-between d-flex">
                             <button type="button" class="btn btn-alt-secondary" data-bs-dismiss="modal">Cancelar</button>
                             <button type="button" class="btn btn-primary" id="registrar-principio-activo">Registrar</button>
@@ -29,15 +32,10 @@
 </div>
 
 @push('js')
-    @vite(['resources/js/bootstrap.js','resources/js/pages/lottie-lordicon.js'])
     <script type="module">
         import { handleResponse, handleError, tiempoEstandar, clearErrors } from "{{ asset('js/axios/axiosHelper.js')}}";
         document.addEventListener('DOMContentLoaded', function() {
             const modal = new bootstrap.Modal(document.getElementById('modal-principio-activo'));
-
-            document.getElementById('crear-principio-activo').addEventListener('click', function() {
-                modal.show();
-            });
 
             document.getElementById('registrar-principio-activo').addEventListener('click', function() {
                 const formData = new FormData(document.getElementById('formulario-principio-activo'));

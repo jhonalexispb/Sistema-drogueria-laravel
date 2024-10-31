@@ -16,11 +16,11 @@ class PrincipioActivoController extends Controller
         if(request('busqueda')){
             $texto = request('busqueda');
             $principiosActivos = PrincipioActivo::where('nombre','LIKE', '%'.$texto.'%')
-                        ->select('nombre','id')
+                        ->select('nombre','id','concentracion')
                         ->paginate(30)
                         ->withQueryString();
         } else {
-            $principiosActivos = PrincipioActivo::select('nombre','id')
+            $principiosActivos = PrincipioActivo::select('nombre','id','concentracion')
                         ->paginate(30);
         }
         return view('principiosActivos.indexPrincipioActivo', compact('principiosActivos','totalPrincipiosActivos'));
@@ -33,14 +33,39 @@ class PrincipioActivoController extends Controller
     {
         $request->validate(
             [
-                'nombre'=>'required|max:255|unique:principios_activos',
+                'nombre' => 'required|max:255',
+                'concentracion' => 'max:100'
             ]
         );
 
+        // Eliminar espacios en blanco de nombre
+        $nombre = str_replace(' ', '', $request->nombre);
+
+        // Verificar si la combinación ya existe
+        $query = PrincipioActivo::where('nombre', $nombre);
+
+        // Solo verificar concentración si está presente
+        if ($request->concentracion) {
+            $concentracion = str_replace(' ', '', $request->concentracion);
+            $query->where('concentracion', $concentracion);
+        } else {
+            // Si no hay concentración, solo comprobar que el nombre no se repita
+            $query->whereNull('concentracion');
+        }
+
+        // Comprobar si la combinación ya existe
+        $existe = $query->exists();
+
+        if ($existe) {
+            return response()->json(['error' => 'Esa combinación ya existe'], 422);
+        }
+
+        // Crear el nuevo registro
         PrincipioActivo::create($request->all());
 
         return response()->json(['success' => 'El principio activo ha sido creado satisfactoriamente']);
     }
+
 
     /**
      * Display the specified resource.

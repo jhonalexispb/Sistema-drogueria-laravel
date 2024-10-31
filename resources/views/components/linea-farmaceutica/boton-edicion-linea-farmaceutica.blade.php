@@ -3,7 +3,6 @@
     </i>
 </button>
 @push('js')
-    @vite(['resources/js/bootstrap.js', 'resources/js/pages/lottie-lordicon.js'])
     <script type="module">
         import { handleError, tiempoEstandar } from "{{ asset('js/axios/axiosHelper.js')}}";
         window.editLineaFarmaceutica = function(id) {

@@ -28,11 +28,12 @@
 </div>
 
 @push('js')
-    @vite(['resources/js/bootstrap.js','resources/js/pages/lottie-lordicon.js'])
     <script type="module">
         import { handleResponse, handleError, tiempoEstandar, clearErrors } from "{{ asset('js/axios/axiosHelper.js')}}";
         document.addEventListener('DOMContentLoaded', function() {
             const modal = new bootstrap.Modal(document.getElementById('modal-linea-farmaceutica'));
+            const saveLocalstorage = @json($saveLocalstorage);
+            const formName = "{{ $formName }}";
 
             document.getElementById('registrar-linea-farmaceutica').addEventListener('click', function() {
                 const formData = new FormData(document.getElementById('formulario-linea-farmaceutica'));
@@ -46,7 +47,11 @@
                         showCloseButton: true,
                         backdrop: true,
                     }).then(() => {
-                        window.location.reload(); // Recarga la página después de cerrar el modal
+                        if (saveLocalstorage) {
+                            console.log("jeje holiii");
+                        } else {
+                            window.location.reload(); // Recarga la página
+                        }
                     });
                 })
                 .catch(error => {

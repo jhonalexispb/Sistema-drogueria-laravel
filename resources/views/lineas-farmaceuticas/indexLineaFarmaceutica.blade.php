@@ -104,7 +104,7 @@
 @endsection
 @section('js')
     <script src="{{ asset('js/lib/jquery.min.js') }}"></script>
-    @vite(['resources/js/pages/datatables.js', 'resources/js/pages/sweetAlert2.js'])
+    @vite(['resources/js/pages/datatables.js', 'resources/js/pages/sweetAlert2.js', 'resources/js/bootstrap.js', 'resources/js/pages/lottie-lordicon.js'])
     <script src="{{ asset('js/plugins/datatables/dataTables.min.js') }}"></script>
     <script src="{{ asset('js/plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
     <script src="{{ asset('js/plugins/datatables-buttons/dataTables.buttons.min.js') }}"></script>

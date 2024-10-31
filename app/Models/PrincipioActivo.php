@@ -12,7 +12,7 @@ class PrincipioActivo extends Model implements AuditableContract
 {
     use HasFactory, Auditable, SoftDeletes;
 
-    protected $fillable = ['nombre'];
+    protected $fillable = ['nombre','concentracion'];
 
     protected $table = 'principios_activos';
 

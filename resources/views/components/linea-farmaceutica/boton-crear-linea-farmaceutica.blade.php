@@ -1,5 +1,11 @@
-<button type="button" class="mb-2 text-white btn bg-gd-sea-op" id="crear-linea-farmaceutica">
-    <i class="si si-plus"></i> Crear linea farmaceutica</button>
+@if ($texto)
+    <button type="button" class="mb-2 text-white btn bg-gd-sea-op" id="crear-linea-farmaceutica">
+        <i class="si si-plus"></i> Crear linea farmaceutica</button> 
+@else
+    <button type="button" class="px-2 py-1 mb-2 text-white btn bg-gd-sea-op" id="crear-linea-farmaceutica">
+        <i class="si si-plus"></i></button> 
+@endif
+
 @push('js')
     <script>
         document.getElementById('crear-linea-farmaceutica').addEventListener('click', function() {

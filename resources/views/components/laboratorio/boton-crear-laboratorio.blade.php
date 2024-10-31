@@ -1,8 +1,6 @@
 <button type="button" class="mb-2 text-white btn bg-gd-sea-op" id="crear-lab">
     <i class="si si-plus"></i> Crear laboratorio</button>
 @push('js')
-
-    @vite(['resources/js/bootstrap.js','resources/js/pages/lottie-lordicon.js'])
     <script type="module">
         import { handleError, tiempoEstandar } from "{{ asset('js/axios/axiosHelper.js')}}";
 
