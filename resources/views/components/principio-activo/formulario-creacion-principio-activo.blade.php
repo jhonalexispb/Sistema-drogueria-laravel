@@ -49,7 +49,20 @@
                         showCloseButton: true,
                         backdrop: true,
                     }).then(() => {
-                        window.location.reload(); // Recarga la página después de cerrar el modal
+                        if('{{ $select }}' != '' ){
+                            const selectize = $('#{{ $select }}').selectize()[0].selectize;
+                            const newOption = {
+                                value: data.nuevo.id, // Asegúrate de que 'id' es el campo único
+                                text: `${data.nuevo.nombre} ${data.nuevo.concentracion}` // Cambia esto según el campo que desees mostrar
+                            };
+
+                            // Primero agregar la nueva opción
+                            selectize.addOption(newOption);
+                            selectize.addItem(newOption.value); // Selecciona la nueva opción automáticamente
+                            
+                        }else{
+                            window.location.reload(); // Recarga la página después de cerrar el modal
+                        }
                     });
                 })
                 .catch(error => {

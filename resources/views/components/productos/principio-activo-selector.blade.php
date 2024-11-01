@@ -26,7 +26,7 @@
                         return `<div>${escape(item.text)} <button class="px-1 py-0 btn btn-outline-danger btn-sm ms-2 remove-item" type="button" onclick="removeItem('${escape(item.value)}')">&times;</button></div>`;
                     },
                     option: function(item, escape) {
-                        return `<div class="px-2">${escape(item.text)}</div>`;
+                        return `<div class="px-2 py-2">${escape(item.text)}</div>`;
                     }
                 }
             });
@@ -35,5 +35,6 @@
         function removeItem(value) {
             const selectize = $('#principios_activos')[0].selectize;
             selectize.removeItem(value);
+            selectize.refreshOptions(false);
         }
 </script>

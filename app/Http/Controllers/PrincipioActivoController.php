@@ -61,9 +61,12 @@ class PrincipioActivoController extends Controller
         }
 
         // Crear el nuevo registro
-        PrincipioActivo::create($request->all());
+        $nuevoPrincipioActivo = PrincipioActivo::create($request->all());
 
-        return response()->json(['success' => 'El principio activo ha sido creado satisfactoriamente']);
+        return response()->json([
+            'success' => 'El principio activo ha sido creado satisfactoriamente',
+            'nuevo' => $nuevoPrincipioActivo
+        ]);
     }
 
 

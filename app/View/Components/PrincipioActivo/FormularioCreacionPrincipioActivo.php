@@ -11,9 +11,10 @@ class FormularioCreacionPrincipioActivo extends Component
     /**
      * Create a new component instance.
      */
-    public function __construct()
+    public string $select;
+    public function __construct(string $select = '')
     {
-        //
+        $this->select = $select;
     }
 
     /**
@@ -21,6 +22,8 @@ class FormularioCreacionPrincipioActivo extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.principio-activo.formulario-creacion-principio-activo');
+        return view('components.principio-activo.formulario-creacion-principio-activo',[
+            'select' => $this->select
+        ]);
     }
 }

@@ -146,7 +146,7 @@
 <!-- END Page Content -->
 <!-- modales -->
 <x-linea-farmaceutica.formulario-creacion-linea-farmaceutica :saveLocalstorage="true" formName="formulario-creacion-producto"/>
-<x-principio-activo.formulario-creacion-principio-activo />
+<x-principio-activo.formulario-creacion-principio-activo select="principios_activos"/>
 @push('js')
     {{-- <script type="module">Dashmix.helpersOnLoad(['jq-select2']);</script> --}}
     <script>

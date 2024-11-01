@@ -9,7 +9,7 @@ use Illuminate\View\Component;
 class BotonCrearPrincipioActivo extends Component
 {
     public bool $texto;
-    public function __construct(bool $texto = true,)
+    public function __construct(bool $texto = true, string $select = '')
     {
         $this->texto = $texto;
     }
@@ -20,7 +20,7 @@ class BotonCrearPrincipioActivo extends Component
     public function render(): View|Closure|string
     {
         return view('components.principio-activo.boton-crear-principio-activo',[
-            'texto' => $this->texto
+            'texto' => $this->texto,
         ]);
     }
 }
